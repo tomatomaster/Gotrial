@@ -1,0 +1,501 @@
+Get https://promopages.ru: dial tcp 109.206.190.54:443: getsockopt: connection refused
+Get https://delicious.com: dial tcp: lookup delicious.com: no such host
+Get https://cloudfront.net: dial tcp: lookup cloudfront.net: no such host
+Get https://columbia.edu: x509: certificate is valid for *.columbia.edu, not columbia.edu
+Get https://upenn.edu: dial tcp: lookup upenn.edu: no such host
+Get https://state.gov: x509: certificate has expired or is not yet valid
+Get https://geocities.jp: dial tcp: lookup geocities.jp: no such host
+Get https://dailymail.co.uk: x509: certificate is valid for *.akamaihd.net, *.akamaihd-staging.net, *.akamaized-staging.net, *.akamaized.net, a248.e.akamai.net, not dailymail.co.uk
+Get https://miibeian.gov.cn: dial tcp: lookup miibeian.gov.cn: no such host
+Get https://linksynergy.com: dial tcp: lookup linksynergy.com: no such host
+Get https://wixsite.com: dial tcp: lookup wixsite.com: no such host
+Get https://livedoor.jp: dial tcp 125.6.149.67:443: getsockopt: connection refused
+Get https://rakuten.co.jp: dial tcp 133.237.48.124:443: getsockopt: connection refused
+Get https://foxnews.com: x509: certificate is valid for *.akamaihd.net, *.akamaihd-staging.net, *.akamaized-staging.net, *.akamaized.net, a248.e.akamai.net, not foxnews.com
+Get https://people.com.cn: x509: certificate is valid for cdn99.cdnsvc.com, 5287p052.cdnsvc.com, media.licdn.com, platform.linkedin.com, scifinder.cas.org, static.licdn.com, test1.cas.org, not people.com.cn
+Get https://telegraph.co.uk: x509: certificate is valid for *.akamaihd.net, *.akamaihd-staging.net, *.akamaized-staging.net, *.akamaized.net, a248.e.akamai.net, not telegraph.co.uk
+Get https://mashable.com: x509: certificate is valid for *.akamaihd.net, *.akamaihd-staging.net, *.akamaized-staging.net, *.akamaized.net, a248.e.akamai.net, not mashable.com
+Get https://usnews.com: x509: certificate is valid for *.akamaihd.net, *.akamaihd-staging.net, *.akamaized-staging.net, *.akamaized.net, a248.e.akamai.net, not usnews.com
+Get https://homes.ru: x509: certificate is valid for hosting.sn.ru, not homes.ru
+Get https://away.ru: x509: certificate is valid for hosting.sn.ru, not away.ru
+0.52s    2389 https://eepurl.com
+Get https://haljl.com: dial tcp 58.221.45.119:443: getsockopt: connection refused
+Get https://economist.com: EOF
+0.55s    3154 https://t.co
+Get https://whoisprivacyprotect.com: dial tcp 69.64.157.29:443: getsockopt: connection refused
+Get https://jdoqocy.com: dial tcp: lookup jdoqocy.com: no such host
+Get https://dropboxusercontent.com: dial tcp: lookup dropboxusercontent.com: no such host
+Get https://about.com: dial tcp 207.241.148.122:443: getsockopt: connection refused
+Get https://admin.ch: dial tcp: lookup admin.ch: no such host
+Get https://usatoday.com: dial tcp 159.54.242.176:443: getsockopt: connection refused
+Get https://state.tx.us: dial tcp: lookup state.tx.us: no such host
+Get https://cn7w.net: dial tcp: lookup cn7w.net: no such host
+Get https://qq.com: x509: certificate is valid for ssl.ui.ptlogin2.qq.com, login.3366.com, ssl.xui.ptlogin2.tenpay.com, login.tenpay.com, ssl.ptlogin2.3366.com, ssl.ptlogin2.pengyou.com, ssl.ptlogin2.tenpay.com, ssl.ui.ptlogin2.3366.com, ssl.xui.ptlogin2.pengyou.com, ssl.ui.ptlogin2.tenpay.com, ssl.xui.ptlogin2.3366.com, login.qq.com, ssl.ptlogin2.mail.qq.com, ssl.ptlogin2.mp.qq.com, ssl.ptlogin2.qq.com, ssl.xui.ptlogin2.qq.com, not qq.com
+Get https://macromedia.com: x509: certificate is valid for www.macromedia.com, upload.macromedia.com, upload.stage.macromedia.com, not macromedia.com
+Get https://dot.gov: dial tcp: lookup dot.gov: no such host
+Get https://ocn.ne.jp: dial tcp: lookup ocn.ne.jp: no such host
+Get https://miitbeian.gov.cn: dial tcp: lookup miitbeian.gov.cn: no such host
+0.61s  498449 https://weather.com
+Get https://baiyewang.com: dial tcp 221.234.43.212:443: getsockopt: connection refused
+Get https://tripod.com: dial tcp 209.202.252.55:443: getsockopt: connection refused
+0.62s   13583 https://line.me
+Get https://100ye.com: dial tcp 221.234.43.212:443: getsockopt: connection refused
+Get https://naver.com: dial tcp 202.179.177.22:443: getsockopt: connection refused
+Get https://prnewswire.com: dial tcp 208.80.56.11:443: getsockopt: connection refused
+Get https://jiathis.com: dial tcp 101.201.39.234:443: getsockopt: connection refused
+Get https://domainname.ru: dial tcp 193.26.18.4:443: getsockopt: connection refused
+Get https://who.int: dial tcp 158.232.12.119:443: getsockopt: connection refused
+Get https://wa.gov: dial tcp 198.239.146.53:443: getsockopt: connection refused
+Get https://apache.org: x509: certificate is valid for *.apache.org, not apache.org
+Get https://ascii.co.uk: dial tcp 178.79.166.247:443: getsockopt: connection refused
+Get https://go.com: x509: certificate is valid for disney.com, www.disney.com, las1.origin.matterhorn.disney.com, not go.com
+Get https://zdnet.com: remote error: tls: alert(112)
+Get https://nature.com: dial tcp 192.129.25.42:443: getsockopt: connection refused
+Get https://west.cn: dial tcp 211.149.162.171:443: getsockopt: connection refused
+0.76s   34278 https://cbslocal.com
+Get https://businesswire.com: x509: certificate is valid for secure.businesswire.com, not businesswire.com
+Get https://domainactive.co: dial tcp 98.124.245.47:443: getsockopt: connection refused
+Get https://directdomains.com: dial tcp 207.148.248.138:443: getsockopt: connection refused
+Get https://icio.us: x509: certificate is valid for del.icio.us, not icio.us
+Get https://tucows.com: dial tcp 64.99.128.15:443: getsockopt: connection refused
+Get https://deloitte.com: dial tcp 170.194.156.208:443: getsockopt: connection refused
+Get https://allaboutcookies.org: dial tcp 216.92.234.46:443: getsockopt: connection refused
+Get https://sfgate.com: x509: certificate is valid for cmf.s.timesunion.com, s.timesunion.com, www.s.timesunion.com, not sfgate.com
+Get https://barnesandnoble.com: x509: certificate is valid for *.barnesandnoble.com, not barnesandnoble.com
+Get https://buydomains.com: dial tcp 207.148.248.132:443: getsockopt: connection refused
+Get https://histats.com: x509: certificate has expired or is not yet valid
+Get https://npr.org: x509: certificate is valid for *.npr.org, not npr.org
+Get https://cnn.com: x509: certificate is valid for a.ssl.fastly.net, *.a.ssl.fastly.net, fast.wistia.com, purge.fastly.net, mirrors.fastly.net, *.parsecdn.com, *.fastssl.net, voxer.com, www.voxer.com, *.firebase.com, sites.yammer.com, sites.staging.yammer.com, *.skimlinks.com, *.skimresources.com, cdn.thinglink.me, *.fitbit.com, *.hosts.fastly.net, control.fastly.net, *.wikia-inc.com, *.perfectaudience.com, *.wikia.com, f.cloud.github.com, *.digitalscirocco.net, *.etsy.com, *.etsystatic.com, *.addthis.com, *.addthiscdn.com, fast.wistia.net, raw.github.com, www.userfox.com, *.assets-yammer.com, *.staging.assets-yammer.com, assets.huggies-cdn.net, orbit.shazamid.com, about.jstor.org, *.global.ssl.fastly.net, web.voxer.com, pypi.python.org, *.12wbt.com, www.holderdeord.no, secured.indn.infolinks.com, play.vidyard.com, play-staging.vidyard.com, secure.img.wfrcdn.com, secure.img.josscdn.com, *.gocardless.com, widgets.pinterest.com, *.7digital.com, *.7static.com, p.datadoghq.com, new.mulberry.com, www.safariflow.com, cdn.contentful.com, tools.fastly.net, *.huevosbuenos.com, *.goodeggs.com, *.fastly.picmonkey.com, *.cdn.whipplehill.net, *.whipplehill.net, cdn.media34.whipplehill.net, cdn.media56.whipplehill.net, cdn.media78.whipplehill.net, cdn.media910.whipplehill.net, *.modcloth.com, *.disquscdn.com, *.jstor.org, *.dreamhost.com, www.flinto.com, *.chartbeat.com, *.hipmunk.com, content.beaverbrooks.co.uk, secure.common.csnstores.com, www.joinos.com, staging-mobile-collector.newrelic.com, *.modcloth.net, *.foursquare.com, *.shazam.com, *.4sqi.net, *.metacpan.org, *.fastly.com, wikia.com, fastly.com, *.gadventures.com, www.gadventures.com.au, www.gadventures.co.uk, kredo.com, cdn-tags.brainient.com, my.billspringapp.com, rvm.io, not cnn.com
+Get https://hexun.com: x509: certificate is valid for trade.m.hexun.com, not hexun.com
+Get https://iqiyi.com: x509: certificate is valid for *.ppsimg.com, *.qiyipic.com, *.qiyi.com, *.cupid.iqiyi.com, *.video.iqiyi.com, *.m.iqiyi.com, *.vip.iqiyi.com, *.if.iqiyi.com, not iqiyi.com
+0.87s  273844 https://techcrunch.com
+Get https://theregister.co.uk: dial tcp 159.100.131.165:443: getsockopt: connection refused
+Get https://globo.com: dial tcp 186.192.90.5:443: getsockopt: connection refused
+0.88s   17207 https://soundcloud.com
+Get https://nsw.gov.au: x509: certificate signed by unknown authority
+Get https://clickbank.net: x509: certificate is valid for api.clickbank.com, not clickbank.net
+0.89s   19907 https://storify.com
+Get https://areasnap.com: x509: certificate is valid for WMSvc-WIN-A97IEQ3K424, not areasnap.com
+Get https://campaign-archive2.com: x509: certificate is valid for *.us1.list-manage.com, not campaign-archive2.com
+1.02s    5478 https://cyberchimps.com
+1.03s    1561 https://blogspot.com.es
+Get https://politico.com: x509: certificate has expired or is not yet valid
+Get https://hibustudio.com: x509: certificate is valid for secure.hibustudio.com, not hibustudio.com
+Get https://ovh.net: x509: certificate is valid for *.nperf.net, nperf.net, not ovh.net
+Get https://list-manage1.com: x509: certificate is valid for *.us1.list-manage.com, not list-manage1.com
+1.02s   91895 https://shop-pro.jp
+1.07s   34211 https://fc2.com
+Get https://nielsen.com: x509: certificate has expired or is not yet valid
+Get https://list-manage.com: x509: certificate is valid for *.us1.list-manage.com, not list-manage.com
+Get https://nhs.uk: x509: certificate is valid for *.azurewebsites.net, *.scm.azurewebsites.net, *.azure-mobile.net, *.scm.azure-mobile.net, not nhs.uk
+Get https://redcross.org: x509: certificate is valid for *.redcross.org, not redcross.org
+Get https://register.it: x509: certificate signed by unknown authority
+1.13s   24906 https://statcounter.com
+Get https://webmd.com: dial tcp 208.93.170.15:443: getsockopt: connection refused
+Get https://imdb.com: dial tcp 207.171.166.22:443: getsockopt: connection refused
+Get https://enable-javascript.com: read tcp 192.168.1.68:65473->185.58.74.136:443: read: connection reset by peer
+1.14s  280584 https://digg.com
+1.15s    4770 https://disqus.com
+Get https://aboutcookies.org: x509: certificate is valid for *.pinsentmasons.com, pinsentmasons.com, not aboutcookies.org
+Get https://live.com: x509: certificate is valid for mail.live.com, m.mail.live.com, contacts.live.com, hotmail.co.jp, hotmail.co.uk, hotmail.com, hotmail.live.com, hotmail.msn.com, people.live.com, www.hotmail.com, www.hotmail.msn.com, www.mail.live.com, home.live.com, www.live.com, dvt.mail.live.com, blu002.afx.ms, blu002.mail.live.com, origin.blu002.mail.live.com, blu168.afx.ms, blu168.mail.live.com, origin.blu168.mail.live.com, blu169.afx.ms, blu169.mail.live.com, origin.blu169.mail.live.com, blu170.afx.ms, blu170.mail.live.com, origin.blu170.mail.live.com, blu171.afx.ms, blu171.mail.live.com, origin.blu171.mail.live.com, blu172.afx.ms, blu172.mail.live.com, origin.blu172.mail.live.com, blu173.afx.ms, blu173.mail.live.com, origin.blu173.mail.live.com, blu174.afx.ms, blu174.mail.live.com, origin.blu174.mail.live.com, blu175.afx.ms, blu175.mail.live.com, origin.blu175.mail.live.com, blu176.afx.ms, blu176.mail.live.com, origin.blu176.mail.live.com, blu177.afx.ms, blu177.mail.live.com, origin.blu177.mail.live.com, blu178.afx.ms, blu178.mail.live.com, origin.blu178.mail.live.com, blu179.afx.ms, blu179.mail.live.com, origin.blu179.mail.live.com, blu180.afx.ms, blu180.mail.live.com, origin.blu180.mail.live.com, blu181.afx.ms, blu181.mail.live.com, origin.blu181.mail.live.com, blu182.afx.ms, blu182.mail.live.com, origin.blu182.mail.live.com, blu183.afx.ms, blu183.mail.live.com, origin.blu183.mail.live.com, blu184.afx.ms, blu184.mail.live.com, origin.blu184.mail.live.com, blu185.afx.ms, blu185.mail.live.com, origin.blu185.mail.live.com, blu186.afx.ms, blu186.mail.live.com, origin.blu186.mail.live.com, blu187.afx.ms, blu187.mail.live.com, origin.blu187.mail.live.com, blu188.afx.ms, blu188.mail.live.com, origin.blu188.mail.live.com, not live.com
+Get https://ieee.org: x509: certificate is valid for origin.www.ieee.org, not ieee.org
+Get https://marketwatch.com: x509: certificate is valid for secure.marketwatch.com, www.marketwatch.com, not marketwatch.com
+1.21s  132185 https://archive.org
+Get https://phoca.cz: x509: certificate signed by unknown authority
+1.21s    7410 https://youdao.com
+1.22s    1270 https://example.com
+Get https://china.com: dial tcp 101.254.216.10:443: getsockopt: connection refused
+Get https://campaign-archive1.com: x509: certificate is valid for *.us1.list-manage.com, not campaign-archive1.com
+1.29s  127254 https://venturebeat.com
+1.30s     844 https://slate.com
+1.30s   28984 https://themegrill.com
+1.31s     662 https://prweb.com
+Get https://aspcms.com: dial tcp 59.175.144.18:443: getsockopt: connection refused
+1.36s   23078 https://foursquare.com
+Get https://ow.ly: dial tcp 54.67.57.56:443: getsockopt: connection refused
+1.37s   11709 https://europa.eu
+1.38s   16009 https://elegantthemes.com
+Get https://huffingtonpost.com: dial tcp 64.12.89.186:443: getsockopt: connection refused
+1.43s  138158 https://imgur.com
+1.45s   31061 https://stanford.edu
+1.45s   91692 https://loc.gov
+1.44s   28474 https://safedog.cn
+1.46s   10441 https://google.fr
+1.46s   10879 https://google.ca
+1.47s   10381 https://google.co.uk
+1.46s   41971 https://mailchimp.com
+1.48s   11649 https://google.es
+1.48s    1561 https://gstatic.com
+1.49s   10317 https://google.de
+1.49s   10418 https://google.it
+1.49s   62700 https://dribbble.com
+1.50s  309080 https://android.com
+Get https://wiley.com: x509: certificate is valid for www.wiley.com, not wiley.com
+1.52s   16289 https://shareasale.com
+1.53s  187752 https://themeforest.net
+1.55s   93293 https://github.com
+Get https://pcworld.com: x509: certificate is valid for *.e.ssl.fastly.net, *.api.movements.purpose.com, *.bigcartel.biz, *.bigcartel.com, *.blendle.com, *.esetstatic.com, *.eyeem.com, *.fastly-plugins.com, *.ft.com, *.fubo.tv, *.highfive.com, *.idgns.com, *.livenation.com, *.lostmy.name, *.nexus.bazaarvoice.com, *.nrml.com, *.ookla.com, *.palantir.com, *.perftest-mini.hoteltonight-test.com, *.sk-static.com, *.speedtest.net, *.ticketcity.com, blendle.com, bostonherald.com, btownmenus.com, c.tadst.com, cdn.bronto.com, cdn.engelbert-strauss.de, cdn.paybygroup.com, dashboard.yesgraph.com, downloads.haskell.org, eyeem.com, famo.us, fastly.kastatic.org, freesecure.timeanddate.com, ft.com, fubo.tv, hackage.haskell.org, highfive.com, hungryboiler.com, hungrybuffs.com, hungryducks.com, idgns.com, mcdn.engelbert-strauss.de, media.guim.co.uk, milehighmenus.com, nrml.com, orderup.com, palantir.com, pao-pao.net, plugins.fastly.com, reso.io, sbmenus.com, secure.img1.josscdn.com, secure.img1.wfrcdn.com, secure.img2.josscdn.com, secure.img2.wfrcdn.com, speculateup.com, speedtest.net, static-cdn.vouchercodes.co.uk, ticketcity.com, unicef.se, www.bostonherald.com, www.celebsgonegood.com, www.gfs.ca, www.gfs.com, www.haskell.org, www.puresolo.com, www.reso.io, www.roh.org.uk, www.themarshallproject.org, www.timeanddate.com, wwwsit.gfs.ca, wwwsit.gfs.com, e.ssl.fastly.net, not pcworld.com
+Get https://googleusercontent.com: dial tcp: lookup googleusercontent.com: no such host
+Get https://nic.tel: dial tcp: lookup nic.tel: no such host
+1.56s   46652 https://scribd.com
+1.56s   78855 https://whitehouse.gov
+1.59s  536151 https://issuu.com
+1.59s   21274 https://doubleclick.net
+1.62s   91884 https://bing.com
+1.64s  151932 https://time.com
+Get https://cbc.ca: x509: certificate is valid for *.akamaihd.net, *.akamaihd-staging.net, *.akamaized-staging.net, *.akamaized.net, a248.e.akamai.net, not cbc.ca
+1.63s   32821 https://sitemeter.com
+1.67s  435996 https://gizmodo.com
+Get https://netscape.com: dial tcp 64.12.79.57:443: getsockopt: connection refused
+1.68s   37663 https://senate.gov
+1.68s   35730 https://hibu.com
+1.73s   25110 https://wordpress.org
+1.70s   11047 https://google.com.hk
+1.69s   10837 https://google.com.br
+1.71s   10414 https://google.com.au
+1.75s   10576 https://google.com
+1.75s   10556 https://google.co.jp
+Get https://xiti.com: x509: certificate is valid for *.atinternet-solutions.com, not xiti.com
+1.71s   13145 https://google.co.in
+1.71s   10938 https://google.nl
+1.77s  321061 https://twitter.com
+1.74s   10625 https://blogspot.de
+1.76s   10599 https://blogspot.co.uk
+Get https://amazonaws.com: dial tcp 72.21.210.29:443: getsockopt: connection refused
+1.78s   21877 https://hugedomains.com
+1.75s    8025 https://ewebdevelopment.com
+1.78s   60046 https://feedburner.com
+Get https://sedoparking.com: x509: certificate is valid for cc.sedoparking.com, not sedoparking.com
+1.84s  109542 https://goo.gl
+1.80s   10805 https://google.pl
+1.84s   19154 https://addtoany.com
+1.84s   75667 https://sourceforge.net
+1.85s   44401 https://home.pl
+1.82s     198 https://fao.org
+1.95s   96705 https://addthis.com
+1.93s   68154 https://mingyou.com
+1.95s   64996 https://arstechnica.com
+2.00s   24854 https://cpanel.com
+1.97s   85630 https://presscustomizr.com
+2.03s   94664 https://blogspot.com
+2.01s   23922 https://gov.uk
+1.99s  157001 https://thenextweb.com
+2.03s   29456 https://networkadvertising.org
+1.99s     100 https://blackberry.com
+2.03s    7953 https://doi.org
+2.05s 1010711 https://fortune.com
+2.05s   36224 https://oreilly.com
+2.06s   92687 https://ftc.gov
+2.09s  516255 https://nbcnews.com
+2.09s   56636 https://harvard.edu
+2.09s  106250 https://mozilla.org
+2.08s   36388 https://prezi.com
+2.09s  612119 https://youku.com
+2.11s   42786 https://nps.gov
+2.11s  258120 https://census.gov
+2.14s  108679 https://house.gov
+2.16s   37124 https://apple.com
+2.16s  233680 https://myspace.com
+2.14s   46571 https://hhs.gov
+2.14s   26742 https://usa.gov
+2.15s   33464 https://ibm.com
+2.17s   29975 https://a8.net
+2.18s  504632 https://bloomberg.com
+2.17s   72424 https://sec.gov
+2.18s   52272 https://trustpilot.com
+Get https://mapquest.com: dial tcp 149.174.110.102:443: getsockopt: connection refused
+2.18s   50884 https://berkeley.edu
+2.17s   61656 https://eb.com.cn
+2.18s   49969 https://oracle.com
+2.20s   24854 https://cpanel.net
+2.21s   62090 https://yandex.ru
+2.19s  176299 https://marriott.com
+Get https://rs6.net: dial tcp 208.75.122.11:443: getsockopt: connection refused
+2.21s  141642 https://bola.net
+2.22s   38876 https://parallels.com
+2.26s   26360 https://typepad.com
+2.22s  325371 https://wn.com
+2.26s  196216 https://cnet.com
+2.25s  130451 https://forbes.com
+2.27s  448313 https://medium.com
+2.31s  118566 https://facebook.com
+2.29s  118976 https://fb.me
+2.29s   89816 https://creativecommons.org
+2.28s   64403 https://teamviewer.com
+2.32s   43786 https://ustream.tv
+2.31s    6072 https://nginx.org
+2.32s  162547 https://goo.ne.jp
+2.33s     673 https://bizjournals.com
+2.35s  118743 https://fb.com
+2.36s  177483 https://ted.com
+Get https://sohu.com: stream error: stream ID 1; INTERNAL_ERROR
+2.38s   94664 https://blogger.com
+2.38s  196543 https://tripadvisor.com
+2.36s    1715 https://com.com
+2.39s   45078 https://msn.com
+2.37s   19657 https://cargocollective.com
+2.40s   21419 https://stumbleupon.com
+2.41s   18397 https://nasa.gov
+2.40s   53548 https://wunderground.com
+2.39s   26229 https://sun.com
+2.44s  141634 https://hatena.ne.jp
+2.41s   39208 https://netcraft.com
+2.41s   46407 https://zendesk.com
+2.44s   71661 https://yale.edu
+2.43s  249418 https://mail.ru
+2.42s   31843 https://xrea.com
+2.42s  136312 https://dol.gov
+2.46s   53357 https://skype.com
+2.46s    8003 https://un.org
+2.47s    7836 https://wikimedia.org
+2.48s   41895 https://opera.com
+2.48s     162 https://yellowbook.com
+2.48s  869857 https://welt.de
+2.51s   51747 https://washington.edu
+2.54s   39147 https://w3.org
+2.51s  262970 https://cbsnews.com
+2.53s  248912 https://theatlantic.com
+2.52s  188702 https://alibaba.com
+2.57s  443029 https://vimeo.com
+2.58s  201759 https://flickr.com
+2.55s   20571 https://php.net
+2.56s   76485 https://sciencedirect.com
+Get https://ranshao.com: dial tcp 60.174.234.74:443: getsockopt: connection refused
+2.56s   60427 https://cdc.gov
+2.58s  248579 https://theverge.com
+2.57s   76405 https://about.me
+2.58s  241046 https://hostgator.com
+2.62s   19396 https://instagram.com
+2.62s  232865 https://washingtonpost.com
+2.58s  224070 https://tmall.com
+2.60s   87658 https://irs.gov
+2.63s   81795 https://wikipedia.org
+2.61s   40265 https://tandfonline.com
+2.62s  223508 https://pcmag.com
+2.64s  114632 https://nydailynews.com
+2.64s   12587 https://gravatar.com
+2.69s  237190 https://amazon.com
+2.66s   28368 https://icann.org
+2.71s   18712 https://mit.edu
+2.67s   20761 https://bund.de
+2.68s   84022 https://hp.com
+2.70s   22931 https://bigcartel.com
+2.71s   15369 https://github.io
+2.73s   29945 https://sogou.com
+2.73s     824 https://secureserver.net
+2.73s   73853 https://name.com
+2.75s  115775 https://mozilla.com
+2.79s   22569 https://bit.ly
+2.76s   74190 https://aliyun.com
+2.81s   56250 https://linkedin.com
+2.83s  420664 https://yahoo.com
+2.81s  225312 https://amazon.co.jp
+2.81s   25303 https://dreamhost.com
+2.84s  313438 https://kickstarter.com
+2.83s  175328 https://indiatimes.com
+2.85s  236889 https://amzn.to
+2.87s   74268 https://weebly.com
+2.84s   92628 https://ox.ac.uk
+2.88s  132914 https://dropbox.com
+2.87s    1064 https://reddit.com
+2.86s  193970 https://bbc.com
+2.86s   26830 https://gnu.org
+2.85s   40608 https://umich.edu
+2.89s   93698 https://microsoft.com
+2.86s  131464 https://weibo.com
+2.86s   74573 https://namejet.com
+2.85s   28237 https://mysql.com
+2.90s  562114 https://youtube.com
+2.88s   29801 https://ed.gov
+2.90s   41416 https://joomla.org
+2.88s  130591 https://squarespace.com
+2.89s   43899 https://free.fr
+2.86s   24897 https://shinystat.com
+2.89s   67211 https://wix.com
+2.92s  107446 https://sedo.com
+2.92s   66936 https://usgs.gov
+2.97s  218865 https://wired.com
+2.93s  145937 https://ebay.co.uk
+2.96s   19458 https://behance.net
+2.96s   67865 https://nih.gov
+2.96s   91649 https://shopify.com
+2.96s  236702 https://detik.com
+2.96s   76241 https://entrepreneur.com
+2.99s   32219 https://constantcontact.com
+3.03s   24511 https://webs.com
+3.01s   78430 https://wisc.edu
+3.04s  249774 https://nytimes.com
+3.06s   71523 https://tumblr.com
+3.03s  302525 https://deviantart.com
+3.04s   28966 https://loopia.com
+3.03s   55917 https://sagepub.com
+3.08s  562555 https://youtu.be
+3.05s   78241 https://goodreads.com
+3.07s   17812 https://homestead.com
+3.07s   21655 https://gpo.gov
+3.07s   28435 https://wufoo.com
+3.07s  186965 https://amazon.ca
+3.09s    7626 https://domainname.de
+3.09s  224159 https://web.de
+3.09s  226414 https://stackoverflow.com
+3.13s  124773 https://adobe.com
+3.12s   32675 https://loopia.se
+3.14s  879550 https://wsj.com
+3.12s   63494 https://nike.com
+3.13s   91649 https://myshopify.com
+3.14s   15429 https://debian.org
+3.17s   27610 https://phpbb.com
+3.14s   43870 https://justgiving.com
+3.18s  175367 https://etsy.com
+3.16s  107154 https://cafepress.com
+3.17s   33257 https://studiopress.com
+3.17s  188582 https://slideshare.net
+3.18s  368892 https://aol.com
+3.16s   14145 https://openstreetmap.org
+3.17s  204014 https://uspto.gov
+3.17s  199824 https://tripadvisor.co.uk
+3.21s   62222 https://afternic.com
+3.22s  608754 https://bandcamp.com
+3.21s   83354 https://si.edu
+3.21s  287567 https://att.com
+3.25s  165370 https://ebay.com
+3.25s   26028 https://wp.com
+3.26s   26028 https://wordpress.com
+3.25s   26028 https://wp.me
+3.24s   68345 https://cisco.com
+3.27s   23864 https://one.com
+3.26s   35050 https://epa.gov
+3.25s   40934 https://dell.com
+3.27s   83444 https://cornell.edu
+3.31s  412196 https://godaddy.com
+3.31s  114080 https://hbr.org
+3.34s   22930 https://domainnameshop.com
+3.33s  834512 https://engadget.com
+3.34s   58971 https://1688.com
+3.35s  170793 https://gofundme.com
+3.41s    6549 https://vk.com
+3.40s   32083 https://mijndomein.nl
+3.41s  246789 https://spiegel.de
+3.45s   80459 https://hostnet.nl
+3.44s  198680 https://amazon.co.uk
+3.42s  105790 https://box.com
+3.46s  136898 https://eventbrite.com
+3.44s  341713 https://ft.com
+3.45s  190196 https://amazon.fr
+3.47s   76398 https://hilton.com
+3.46s  107635 https://meetup.com
+3.47s  159355 https://1und1.de
+3.50s  205369 https://amazon.de
+3.49s  337523 https://change.org
+3.52s   38759 https://bluehost.com
+3.51s  113742 https://hubspot.com
+3.51s   35656 https://cmu.edu
+3.52s  107074 https://inc.com
+3.54s  620432 https://guardian.co.uk
+3.52s   38599 https://lulu.com
+3.57s  188816 https://pinterest.com
+3.54s  172235 https://pbs.org
+3.61s  155144 https://dailymotion.com
+3.58s  135524 https://smugmug.com
+3.59s   36862 https://liveinternet.ru
+3.61s   52356 https://spotify.com
+3.63s  620432 https://theguardian.com
+3.66s   44283 https://surveymonkey.com
+3.66s  107972 https://newyorker.com
+3.67s  104599 https://1and1.fr
+3.68s   99897 https://1and1.com
+3.71s   58156 https://utexas.edu
+3.78s   41497 https://bbb.org
+3.74s   31052 https://zenfolio.com
+3.76s  205911 https://rambler.ru
+3.79s  395534 https://booking.com
+3.79s    6560 https://vkontakte.ru
+3.78s   69933 https://paginegialle.it
+3.79s  139851 https://odnoklassniki.ru
+3.83s   82762 https://salenames.ru
+3.85s   30922 https://drupal.org
+3.85s   35579 https://ap.org
+3.88s   57720 https://cam.ac.uk
+3.89s  715701 https://fastcompany.com
+3.93s   57034 https://networksolutions.com
+3.94s   25908 https://istockphoto.com
+3.95s   24793 https://paypal.com
+4.00s  224967 https://bbc.co.uk
+4.03s  224283 https://alexa.com
+4.12s   69142 https://nazwa.pl
+4.15s  113421 https://ovh.com
+4.15s  431620 https://buzzfeed.com
+4.14s   57083 https://dandomain.dk
+4.17s   89196 https://e-recht24.de
+4.21s   53944 https://fotolia.com
+4.18s  546100 https://wikia.com
+4.22s  162135 https://livejournal.com
+4.22s   34829 https://visma.com
+4.25s   66080 https://oecd.org
+4.36s  659961 https://163.com
+4.40s   72691 https://businessinsider.com
+4.46s  289811 https://t-online.de
+Get https://academic.oup.com/journals/: read tcp 192.168.1.68:49706->173.254.190.144:443: read: connection reset by peer
+4.60s  329360 https://cnbc.com
+4.63s  101641 https://jimdo.com
+4.63s  537587 https://uk2.net
+4.62s  129498 https://uol.com.br
+4.64s   66713 https://cryoutcreations.eu
+4.71s  119264 https://yelp.com
+4.70s   37574 https://springer.com
+4.78s  464620 https://symantec.com
+4.82s   51100 https://taobao.com
+4.82s   59546 https://adition.com
+4.84s   43256 https://xing.com
+4.86s   22541 https://domeneshop.no
+4.96s   49037 https://123-reg.co.uk
+5.75s  170164 https://houzz.com
+6.01s  127681 https://plesk.com
+6.23s   24165 https://quantcast.com
+6.24s   42801 https://princeton.edu
+6.32s  286807 https://independent.co.uk
+8.49s  101964 https://baidu.com
+Get https://discuz.net: net/http: TLS handshake timeout
+Get https://51.la: net/http: TLS handshake timeout
+Get https://latimes.com: dial tcp 192.187.77.17:443: i/o timeout
+Get https://usda.gov: dial tcp 199.134.75.104:443: getsockopt: connection refused
+Get https://fda.gov: dial tcp 63.80.4.10:443: i/o timeout
+Get https://reuters.com: dial tcp 52.2.61.110:443: i/o timeout
+Get https://acquirethisname.com: dial tcp 98.124.199.118:443: i/o timeout
+Get https://unesco.org: dial tcp 193.242.192.45:443: i/o timeout
+Get https://ameblo.jp: dial tcp 27.133.209.103:443: i/o timeout
+Get https://beian.gov.cn: dial tcp 211.88.112.61:443: i/o timeout
+Get https://geocities.com: dial tcp 98.137.201.117:443: i/o timeout
+Get https://yahoo.co.jp: dial tcp 182.22.59.229:443: i/o timeout
+Get https://smh.com.au: dial tcp 52.64.8.70:443: i/o timeout
+Get https://photobucket.com: dial tcp 209.17.68.100:443: i/o timeout
+Get https://technorati.com: dial tcp 208.66.66.66:443: i/o timeout
+Get https://sakura.ne.jp: dial tcp 210.224.168.100:443: i/o timeout
+Get https://ca.gov: dial tcp 67.157.98.46:443: i/o timeout
+Get https://nationalgeographic.com: dial tcp 216.146.46.11:443: i/o timeout
+Get https://ifeng.com: dial tcp 210.51.19.63:443: i/o timeout
+Get https://samsung.com: dial tcp 211.45.27.231:443: i/o timeout
+Get https://noaa.gov: dial tcp 140.172.17.21:443: i/o timeout
+Get https://mlb.com: dial tcp 209.102.213.14:443: i/o timeout
+Get https://umblr.com: dial tcp 72.32.231.8:443: i/o timeout
+Get https://chicagotribune.com: dial tcp 192.187.93.86:443: getsockopt: connection refused
+Get https://businessweek.com: dial tcp 69.191.215.14:443: i/o timeout
+Get https://worldbank.org: dial tcp 54.83.165.33:443: i/o timeout
+Get https://abc.net.au: dial tcp 203.2.218.214:443: i/o timeout
+Get https://bestfwdservice.com: dial tcp 141.8.224.25:443: i/o timeout
+Get https://xinhuanet.com: dial tcp 202.108.119.193:443: i/o timeout
+Get https://warnerbros.com: dial tcp 52.89.47.16:443: i/o timeout
+Get https://sciencemag.org: dial tcp 198.151.217.186:443: i/o timeout
+Get https://accuweather.com: dial tcp 207.242.93.24:443: i/o timeout
+Get https://windowsphone.com: dial tcp 104.43.142.34:443: i/o timeout
+Get https://chinadaily.com.cn: dial tcp 124.127.180.200:443: i/o timeout
+Get https://intel.com: dial tcp 13.91.95.74:443: i/o timeout
+Get https://soso.com: dial tcp 123.126.51.90:443: i/o timeout
+Get https://comsenz.com: dial tcp 112.64.234.169:443: i/o timeout
+Get https://qiangmi.com: dial tcp 202.91.235.123:443: i/o timeout
+Get https://huanqiu.com: dial tcp 58.68.250.146:443: i/o timeout
+Get https://baike.com: dial tcp 124.243.228.203:443: i/o timeout
+Get https://adweek.com: dial tcp 34.198.60.180:443: i/o timeout
+Get https://www.telnic.org/: dial tcp 52.218.16.178:443: i/o timeout
+33.75s  248153 https://vice.com
+33.78s elapsed
