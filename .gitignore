@@ -32,4 +32,4 @@ _testmain.go
 debug
 
 # ForMac
-*.DS_Store
+.DS_Store
