@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"os"
 	"strconv"
@@ -24,6 +25,9 @@ func main() {
 	}
 }
 
-func p2K(arg float64) float64 {
-	return arg * 0.453592
+func p2K(arg float64) (float64, error) {
+	if arg < 0 {
+		return 0, errors.New("Negative value is not supported")
+	}
+	return arg * 0.453592, nil
 }

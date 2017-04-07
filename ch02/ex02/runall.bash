@@ -1,0 +1,1 @@
+go run scaleConverter.go 1 10 123
