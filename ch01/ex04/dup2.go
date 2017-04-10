@@ -10,6 +10,7 @@ import (
 func main() {
 	counts := make(map[string]int)
 	files := os.Args[1:]
+	log.Print(files)
 	for _, arg := range files {
 		f, err := os.Open(arg)
 		if err != nil {
