@@ -27,7 +27,7 @@ func main() {
 
 func ifNotHasPrefixThenAppend(prefix string, dest string) string {
 	if !strings.HasPrefix(dest, "http://") {
-		dest = "http://" + dest
+		dest = prefix + dest
 	}
 	return dest
 }
