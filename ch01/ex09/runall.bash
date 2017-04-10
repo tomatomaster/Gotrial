@@ -1,0 +1,1 @@
+go run fetch.go http://google.com

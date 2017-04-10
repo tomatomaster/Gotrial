@@ -16,7 +16,7 @@ func main() {
 			fmt.Fprint(os.Stderr, "", err)
 			os.Exit(1)
 		}
-		fmt.Println("StatusCode:" + resp.Status)
+		printStatusCode(os.Stdout, resp)
 		io.Copy(os.Stdout, resp.Body)
 		resp.Body.Close()
 		if err != nil {
@@ -24,6 +24,10 @@ func main() {
 			os.Exit(1)
 		}
 	}
+}
+
+func printStatusCode(w io.Writer, resp *http.Response) {
+	fmt.Fprintln(w, "StatusCode:"+resp.Status)
 }
 
 func ifNotHasPrefixThenAppend(prefix string, dest string) string {

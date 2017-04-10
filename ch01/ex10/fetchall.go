@@ -32,11 +32,7 @@ func fetch(url string, ch chan<- string) {
 	}
 	fName := getHostName(url)
 	oPath := filepath.Join(getCurrentPath(), fName)
-	file, err := os.Create(oPath)
-	if err != nil {
-		log.Fatal(err)
-	}
-	nbytes, err := io.Copy(file, resp.Body)
+	nbytes, err := writeFileTo(oPath, resp.Body)
 	resp.Body.Close()
 	if err != nil {
 		ch <- fmt.Sprintf("while reading %s: %v", url, err)
@@ -44,6 +40,14 @@ func fetch(url string, ch chan<- string) {
 	}
 	secs := time.Since(start).Seconds()
 	ch <- fmt.Sprintf("%.2fs %7d %s", secs, nbytes, url)
+}
+
+func writeFileTo(path string, contents io.ReadCloser) (written int64, err error) {
+	file, err := os.Create(path)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return io.Copy(file, contents)
 }
 
 func getCurrentPath() string {
