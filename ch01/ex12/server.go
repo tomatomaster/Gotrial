@@ -20,9 +20,14 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
+	i := getCyclesFrom(r)
+	anime.Lissajous(w, i)
+}
+
+func getCyclesFrom(r *http.Request) int {
 	query := r.URL.RawQuery
 	v, _ := url.ParseQuery(query)
 	s := v.Get("cycles")
 	i, _ := strconv.Atoi(s)
-	anime.Lissajous(w, i)
+	return i
 }
