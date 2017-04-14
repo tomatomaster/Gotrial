@@ -33,3 +33,6 @@ debug
 
 # ForMac
 .DS_Store
+
+#memo
+m_*.md

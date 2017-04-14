@@ -12,22 +12,22 @@ func main() {
 	bench(joinFunc)
 }
 
-func bench(fn func()) {
+func bench(fn func() string) {
 	tS := time.Now()
 	fn()
 	tE := time.Now()
 	fmt.Printf("TIME: %d \n", tE.Nanosecond()-tS.Nanosecond())
 }
 
-func plusFunc() {
+func plusFunc() string {
 	s, sep := "", ""
 	for _, arg := range os.Args[0:] {
 		s += sep + arg
 		sep = " "
 	}
-	fmt.Println(s)
+	return s
 }
 
-func joinFunc() {
-	fmt.Println(strings.Join(os.Args[0:], " "))
+func joinFunc() string {
+	return strings.Join(os.Args[0:], " ")
 }
