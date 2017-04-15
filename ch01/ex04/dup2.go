@@ -7,6 +7,7 @@ import (
 	"os"
 )
 
+//FIXME This program is not working
 func main() {
 	counts := make(map[string]int)
 	files := os.Args[1:]
@@ -35,6 +36,7 @@ func countLines(f *os.File, counts map[string]int) {
 	}
 
 	for input.Scan() {
+		log.Print("t")
 		log.Print("test")
 		counts[input.Text()]++
 	}

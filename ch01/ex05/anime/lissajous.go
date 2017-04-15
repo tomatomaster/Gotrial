@@ -20,11 +20,11 @@ const (
 // pallet {background color, line color}
 func Lissajous(out io.Writer, palette []color.Color) {
 	const (
-		cycles  = 5
+		cycles  = 2
 		res     = 0.001
 		size    = 100
 		nframes = 64
-		delay   = 8
+		delay   = 3
 	)
 	freq := rand.Float64() * 3.0
 	anim := gif.GIF{LoopCount: nframes}
