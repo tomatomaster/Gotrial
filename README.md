@@ -8,3 +8,4 @@
 Memo
 - [パッケージ管理Glide](http://qiita.com/tienlen/items/8e192e68d6b18bec3b4a)
 - [ビットを数える・探すアルゴリズム](http://www.nminoru.jp/~nminoru/programming/bitcount.html) ch02/ex03 - 05
+- [Frequently Asked Questions (FAQ)](https://golang.org/doc/faq#conversions)
