@@ -1,0 +1,1 @@
+go run sha.go -t 512 z
