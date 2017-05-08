@@ -7,5 +7,5 @@ import (
 )
 
 func main() {
-	fmt.Print(newton.X4minus1(123))
+	fmt.Print(newton.X4minus1(5))
 }
