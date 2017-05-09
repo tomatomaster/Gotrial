@@ -1,0 +1,1 @@
+go run wordfreq.go /Users/ono/dev/go/goRepo/ch04/ex09/res/war.txt
