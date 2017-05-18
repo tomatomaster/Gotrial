@@ -21,6 +21,7 @@ func main() {
 	imap := make(map[string]string)
 	if mode == "create" {
 		inputs := inputCommon(imap)
+		inputs = inputAuthInfo(inputs)
 		request := github.IssueFields{Title: inputs["title"], Body: inputs["body"]}
 		auth := github.AuthInfo{Name: inputs["name"], Pass: inputs["pass"]}
 		resp, err := github.CreateIssues(owner, repo, &request, auth)
@@ -73,11 +74,16 @@ func inputAuthInfo(inputs map[string]string) map[string]string {
 	return inputs
 }
 
+func inputCreateIssue(inputs map[string]string) map[string]string {
+	inputs = inputCommon(inputs)
+	inputs = inputAuthInfo(inputs)
+	return inputs
+}
+
 func inputEditIssue(inputs map[string]string) map[string]string {
 	fmt.Println("Enter the issue no")
 	inputs["no"] = nextLine()
-	inputs = inputCommon(inputs)
-	inputs = inputAuthInfo(inputs)
+	inputs = inputCreateIssue(inputs)
 	return inputs
 }
 
