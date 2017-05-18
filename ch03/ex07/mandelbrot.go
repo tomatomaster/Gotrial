@@ -27,23 +27,7 @@ func main() {
 			img.Set(px, py, mandelbrot(z))
 		}
 	}
-	gaussianFilter(img)
 	png.Encode(os.Stdout, img)
-}
-
-func gaussianFilter(img image.Image) {
-	width := img.Bounds().Dx()
-	height := img.Bounds().Dy()
-
-	for x := 0; x < width; x++ {
-		for y := 0; y < height; y++ {
-			cs := img.At(x, y-1)
-			cw := img.At(x-1, y)
-			ce := img.At(x+1, y)
-			cn := img.At(x, y+1)
-			rgba := root(cs, cw, ce, cn)
-		}
-	}
 }
 
 func root(images ...color.Color) color.RGBA {
@@ -60,23 +44,29 @@ func root(images ...color.Color) color.RGBA {
 }
 
 func mandelbrot(z complex128) color.Color {
-	const iterations = 200
-	const contrast = 15
+	const iterations = 51
+	const criterior = 0.00000000000000000001
+	const contrast = 5
 
-	var v complex128
 	//iterationsの回数が明確なので、0-256の範囲で十分
 	//200回以内に発散しなければ収束しているとみなしているが、根拠が良くわからない
 	for n := uint8(0); n < iterations; n++ {
-		v = v*v + z           //zk+1 = zkn + C　（n=2, C=z)
-		if cmplx.Abs(v) > 2 { //C>2は必ず発散する
-			if n < 10 {
-				return color.RGBA{0, 255, 0, 255}
-			} else if 20 < n && n < 100 {
-				return color.RGBA{0, 0, 255, 255}
-			} else if 30 < n {
-				return color.RGBA{255, 0, 0, 255}
-			}
+		//v = v*v + z //zk+1 = zkn + C　（n=2, C=z)
+
+		z = newton(z)
+		if cmplx.Abs((1+0i)-z) < criterior {
+			return color.RGBA{255 - contrast*n, 0, 0, 255}
+		} else if cmplx.Abs((-1+0i)-z) < criterior {
+			return color.RGBA{0, 255 - contrast*n, 0, 255}
+		} else if cmplx.Abs((0+1i)-z) < criterior {
+			return color.RGBA{0, 0, 255 - contrast*n, 255}
+		} else if cmplx.Abs((0-1i)-z) < criterior {
+			return color.RGBA{100 - contrast*n, 100 - contrast*n, 100 - contrast*n, 255}
 		}
 	}
-	return color.RGBA{200, 200, 50, 255}
+	return color.RGBA{200, 200, 50, 255} //収束
+}
+
+func newton(x complex128) complex128 {
+	return x - (x*x*x*x-1.0)/(4*x*x*x)
 }

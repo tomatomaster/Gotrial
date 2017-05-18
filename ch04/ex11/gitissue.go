@@ -13,9 +13,9 @@ import (
 func main() {
 	var mode string
 	var owner, repo string
-	flag.StringVar(&mode, "mode", "", "")
-	flag.StringVar(&owner, "owner", "", "repository owner")
-	flag.StringVar(&repo, "repo", "", "repository name")
+	flag.StringVar(&mode, "mode", "", "create, edit, close or search")
+	flag.StringVar(&owner, "owner", "", "target repository owner")
+	flag.StringVar(&repo, "repo", "", "target repository name")
 	flag.Parse()
 
 	imap := make(map[string]string)
@@ -28,7 +28,7 @@ func main() {
 		if err != nil {
 			fmt.Print(err)
 		} else {
-			fmt.Printf("resp %v", resp.Body)
+			fmt.Printf("resp %v", resp.Status)
 		}
 	} else if mode == "edit" {
 		inputs := inputEditIssue(imap)
@@ -38,7 +38,7 @@ func main() {
 		if err != nil {
 			fmt.Print(err)
 		} else {
-			fmt.Printf("resp %v", resp.Body)
+			fmt.Printf("resp %v", resp.Status)
 		}
 	} else if mode == "close" {
 		inputs := inputCloseIssue(imap)
@@ -47,7 +47,7 @@ func main() {
 		if err != nil {
 			fmt.Print(err)
 		} else {
-			fmt.Printf("resp %v", resp.Body)
+			fmt.Printf("resp %v", resp.Status)
 		}
 	} else if mode == "search" {
 		result, err := github.SearchIssues([]string{"test", "http"})

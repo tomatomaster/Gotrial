@@ -1,0 +1,1 @@
+go run mandelbrot.go > test.jpg
