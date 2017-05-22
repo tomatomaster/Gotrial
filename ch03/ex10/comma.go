@@ -6,10 +6,13 @@ import (
 )
 
 func main() {
-	fmt.Print(comma("1234567"))
+	fmt.Print(comma("345234413143424267"))
 }
 
 func comma(s string) string {
+	if len(s) == 3 {
+		return s
+	}
 	b := []byte(s)
 	var buf bytes.Buffer
 	count := 0

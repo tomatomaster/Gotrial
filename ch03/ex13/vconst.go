@@ -6,9 +6,9 @@ const (
 	//KB value is 1000
 	KB = 1000
 	//MB value is 1000000
-	MB = 1000000
+	MB = 1000000 //KB * KB
 	//GB value is 1000000000
-	GB = 1000000000
+	GB = 1000000000 //MB * KB
 	//TB value is 1000000000000
 	TB = 1000000000000
 	//PB value is 1000000000000000

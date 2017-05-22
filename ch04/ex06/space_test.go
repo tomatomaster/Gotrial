@@ -17,7 +17,7 @@ func Test1(t *testing.T) {
 }
 
 func Test2(t *testing.T) {
-	sample := "今日は        世       界"
+	sample := "　今日は        世 　　 あ     界"
 	expected := "今日は 世 界"
 	result := f([]byte(sample))
 	actual := string(result)

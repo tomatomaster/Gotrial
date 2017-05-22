@@ -7,9 +7,9 @@ import (
 )
 
 const (
-	width, height = 600, 820
-	cells         = 100
-	xyrange       = 30
+	width, height = 600, 800
+	cells         = 300
+	xyrange       = 300
 	xyscale       = width / 2 / xyrange
 	zscale        = height * 0.4
 	angle         = math.Pi / 6

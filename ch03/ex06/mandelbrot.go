@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"image"
 	"image/color"
 	"image/png"
@@ -27,36 +26,37 @@ func main() {
 			img.Set(px, py, mandelbrot(z))
 		}
 	}
-	gaussianFilter(img)
+	//gaussianFilter(img)
 	png.Encode(os.Stdout, img)
 }
 
-func gaussianFilter(img image.Image) {
+func gaussianFilter(img image.Image) color.RGBA {
 	width := img.Bounds().Dx()
 	height := img.Bounds().Dy()
 
+	var rgba color.RGBA
 	for x := 0; x < width; x++ {
 		for y := 0; y < height; y++ {
 			cs := img.At(x, y-1)
 			cw := img.At(x-1, y)
 			ce := img.At(x+1, y)
 			cn := img.At(x, y+1)
-			rgba := root(cs, cw, ce, cn)
+			rgba = root(cs, cw, ce, cn)
 		}
 	}
+	return rgba
 }
 
 func root(images ...color.Color) color.RGBA {
 	var r, g, b, a uint32
 	for _, image := range images {
 		_r, _g, _b, _a := image.RGBA()
-		fmt.Print(_r, _g, _b, _a)
-		r = (r + _r) / 2
-		g = (g + _g) / 2
-		b = (b + _b) / 2
-		a = (a + _a) / 2
+		r += _r
+		g += _g
+		b += _b
+		a += _a
 	}
-	return color.RGBA{uint8(r), uint8(g), uint8(b), uint8(a)}
+	return color.RGBA{uint8(r / 4), uint8(g / 4), uint8(b / 4), uint8(a / 4)}
 }
 
 func mandelbrot(z complex128) color.Color {
@@ -69,12 +69,12 @@ func mandelbrot(z complex128) color.Color {
 	for n := uint8(0); n < iterations; n++ {
 		v = v*v + z           //zk+1 = zkn + C　（n=2, C=z)
 		if cmplx.Abs(v) > 2 { //C>2は必ず発散する
-			if n < 10 {
-				return color.RGBA{0, 255, 0, 255}
-			} else if 20 < n && n < 100 {
-				return color.RGBA{0, 0, 255, 255}
-			} else if 30 < n {
-				return color.RGBA{255, 0, 0, 255}
+			if n < 50 {
+				return color.RGBA{n * 5, 255 - n*5, 0, 255}
+			} else if 50 < n && n < 100 {
+				return color.RGBA{n * 10, n * 10, 255 - (n-50)*5, 255}
+			} else if 100 < n {
+				return color.RGBA{255 - (n-100)*2, n * 5, 0, 255}
 			}
 		}
 	}

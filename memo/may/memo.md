@@ -1,7 +1,26 @@
-y 0001
-^単項で使用するとビット反転     ^y 1110
 # bit演算
+
+y 0001
+
+^単項で使用するとビット反転     ^y 1110
+
 x 1011
+
+符号ありの型をビット反転させると符号も反転する
+
+```
+	var ux uint = 0xff
+	var uy uint = 0x1
+	x := 0xff
+	y := 0x1
+	fmt.Printf("int x=%b int y=%b\n", x, y)
+	fmt.Printf("^x=%b ^y=%b\n", ^x, ^y)
+	fmt.Printf("uint x=%b uint y=%b\n", ux, uy)
+	fmt.Printf("^ux=%b ^uy=%b\n", ux, uy)
+	fmt.Printf("x&^y=%b \n", x&^y)
+	fmt.Printf("y&^x=%b \n", y&^x)
+```
+
 &^二項演算子で使用するとビット差   x&^y 1010
 
 
@@ -15,7 +34,7 @@ javaの場合bigIntergerに対するaddはGoで言うと下記のようになっ
 x,y,z big.Rat
 z.Add(&x,&y)
 
-UTF-8は自己同期化される
+# UTF-8の自己同期化とは
 そもそも同期とは？
 例えばCPUアーキテクチャデータバスはバイト列の区切りをどのように判断しているのか
 CPUクロックを見てデータの区切りを判断している。つまり、データバスは自己では同期できていない
@@ -47,3 +66,32 @@ vendarパッケージは3rdベンダーのソースコードを丸々取り込�
 # Rune int32
 Runeとint32は全く一緒の型
 
+# 配列もしくはArrayへの配列言語仕様書に記載
+
+```go
+
+func zero_array(ptr *[32]byte){
+    for i := range ptr {
+        ptr[i]=0
+    }
+}
+
+//コンパイルエラー
+func zero_array(ptr []byte) {
+    for i := range ptr {
+        ptr[i]=0
+    }
+}
+
+func zero_array(ptr *[]byte) {
+    for i := range ptr {
+        (*ptr[i])=0
+    }
+}
+
+```
+
+# 構造体のゼロ値が実用的なデフォルト値ではない場合はどうするのか
+newStruct()のようなAPIを提供する
+
+json unmarshalは空interface型を指定するとjsonの型を見て自動的に型変換を行なってくれる

@@ -8,7 +8,7 @@ import (
 
 func main() {
 	target := []byte("今日は   良い     天気    ですね。")
-	compressed := compress(target)
+	compressed := comp(target)
 	var stringval = string(compressed)
 	fmt.Printf("%s \n", stringval)
 }
@@ -22,7 +22,7 @@ func compress(b []byte) []byte {
 			nRune, _ := utf8.DecodeRune(b[next:])
 			if unicode.IsSpace(nRune) {
 				copy(b[i:], b[next:])
-				count++
+				count += size
 			} else {
 				i += size
 			}
@@ -31,6 +31,19 @@ func compress(b []byte) []byte {
 		}
 	}
 	return b[:len(b)-count]
+}
+
+func comp(b []byte) []byte {
+	for i := 0; i < len(b); {
+		r1, size1 := utf8.DecodeRune(b[i:])
+		r2, size2 := utf8.DecodeRune(b[i+size1:])
+		if unicode.IsSpace(r1) && unicode.IsSpace(r2) {
+			b[i] = ' '
+			copy(b[i:], b[(i+size1+size2):])
+		}
+		i += size1 + size2
+	}
+	return b
 }
 
 func test(s string) {

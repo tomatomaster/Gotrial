@@ -55,9 +55,9 @@ func mandelbrot(z complex128) color.Color {
 
 		z = newton(z)
 		if cmplx.Abs((1+0i)-z) < criterior {
-			return color.RGBA{255 - contrast*n, 0, 0, 255}
+			return color.RGBA{255 - contrast*n, 0, 0, 255 - contrast*n}
 		} else if cmplx.Abs((-1+0i)-z) < criterior {
-			return color.RGBA{0, 255 - contrast*n, 0, 255}
+			return color.RGBA{0, 255 - contrast*n, contrast * n, 255 - contrast*n}
 		} else if cmplx.Abs((0+1i)-z) < criterior {
 			return color.RGBA{0, 0, 255 - contrast*n, 255}
 		} else if cmplx.Abs((0-1i)-z) < criterior {

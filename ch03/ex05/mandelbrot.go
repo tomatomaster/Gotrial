@@ -40,11 +40,11 @@ func mandelbrot(z complex128) color.Color {
 		v = v*v + z           //zk+1 = zkn + C　（n=2, C=z)
 		if cmplx.Abs(v) > 2 { //C>2は必ず発散する
 			if n < 10 {
-				return color.RGBA{0, 255, 0, 255}
+				return color.RGBA{n * 25, 255 - n*25, 0, 255}
 			} else if 20 < n && n < 100 {
-				return color.RGBA{0, 0, 255, 255}
-			} else if 30 < n {
-				return color.RGBA{255, 0, 0, 255}
+				return color.RGBA{n * 10, n * 10, 255 - (n-20)*20, 255}
+			} else if 100 < n {
+				return color.RGBA{255 - (n-100)*2, n * 50, 0, 255}
 			}
 		}
 	}

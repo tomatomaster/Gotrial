@@ -39,7 +39,7 @@ func comma(s string) string {
 	}
 	//fmt.Printf("%d %d \n", count, mod) // 1 1 両方とも同じ値を指すにもかかわらず、countを使用すると、1,234でforが止まる。なぜ？
 	for i := 0; i < len(b)-mod; i++ { // for i := 0; i < len(b)-count; i++
-		if i%3 == 0 && len(b) != 3 {
+		if i%3 == 0 {
 			buf.WriteByte(',')
 		}
 		buf.WriteByte(b[count])

@@ -28,7 +28,7 @@ func TestComma3(t *testing.T) {
 }
 
 func TestComma4(t *testing.T) {
-	result := f("123")
+	result := f("123456")
 	if result != "123" {
 		t.Errorf("Expected value is 123. Actual %s", result)
 	}
