@@ -10,7 +10,7 @@ import (
 
 func main() {
 	for _, url := range os.Args[1:] {
-		url = ifNotHasPrefixThenAppend("http://", url)
+		url = ifNotHasPrefixThenAppend("https://", url)
 		resp, err := http.Get(url)
 		if err != nil {
 			fmt.Fprint(os.Stderr, "", err)
@@ -26,7 +26,7 @@ func main() {
 }
 
 func ifNotHasPrefixThenAppend(prefix string, dest string) string {
-	if !strings.HasPrefix(dest, "http://") {
+	if !strings.HasPrefix(dest, "https://") {
 		dest = prefix + dest
 	}
 	return dest
