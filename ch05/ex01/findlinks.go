@@ -21,6 +21,6 @@ func visit(links []string, n *html.Node) []string {
 			}
 		}
 	}
-
-	return links
 }
+
+
