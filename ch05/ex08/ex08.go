@@ -1,40 +1,42 @@
 package main
 
 import (
+	"fmt"
 	"golang.org/x/net/html"
+	"log"
 	"net/http"
 	"os"
 )
 
 func main() {
 	url := os.Args[1]
-	resp, _ := http.Get(url)
-	html.Parse(resp.Body)
+	resp, err := http.Get(url)
+	if err != nil {
+		log.Fatal(err)
+	}
+	node, err := html.Parse(resp.Body)
+	resp.Body.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
+	findNode := ElementByID(node, "class")
+	fmt.Printf("%v\n", findNode.Data)
 }
 
 func ElementByID(n *html.Node, id string) *html.Node {
+	var node *html.Node
 	forEachNode(n, func(n *html.Node) bool {
 		if n.Type == html.ElementNode {
 			for _, attr := range n.Attr {
-				if attr.Key == "id" && attr.Val == id {
+				if attr.Key == id {
+					node = n
 					return false
 				}
 			}
 		}
 		return true
 	}, nil)
-	return n
-}
-
-func find(id string, n *html.Node) bool {
-	if n.Type == html.ElementNode {
-		for _, attr := range n.Attr {
-			if attr.Key == "id" && attr.Val == id {
-				return false
-			}
-		}
-	}
-	return true
+	return node
 }
 
 var ok bool = true

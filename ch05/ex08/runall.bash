@@ -1,0 +1,1 @@
+go run ex08.go http://tech.mercari.com/entry/2017/05/23/095500

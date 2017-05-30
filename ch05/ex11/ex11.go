@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"sort"
+	"log"
 )
 
 var prereqs = map[string][]string{
@@ -22,6 +22,7 @@ var prereqs = map[string][]string{
 	"networks":              {"operating systems"},
 	"operating systems":     {"data structures", "computer organization"},
 	"programming languages": {"data structures", "computer organization"},
+	"linear algebra":        {"calculus"},
 }
 
 func main() {
@@ -32,6 +33,7 @@ func main() {
 }
 
 func topoSort(m map[string][]string) map[string]int {
+	checkcirculation(m)
 	order := make(map[string]int)
 	seen := make(map[string]bool)
 	var visitAll func(items []string)
@@ -55,25 +57,14 @@ func topoSort(m map[string][]string) map[string]int {
 	return order
 }
 
-//m 受講科目が決定するとValとして、必要科目のスライスが取得される
-func topoSortOriginal(m map[string][]string) []string {
-	var order []string
-	seen := make(map[string]bool)
-	var visitAll func(items []string)
-
-	visitAll = func(items []string) {
-		for _, item := range items {
-			seen[item] = true
-			visitAll((m[item])) //必要科目のさらに必要科目を再帰的に検索
-			order = append(order, item)
+func checkcirculation(m map[string][]string) {
+	for fk, fv := range m { //全ての要素に対して、
+		for _, values := range fv { //前提科目が受講科目を前提科目としていないか確認する
+			for _, sv := range m[values] {
+				if fk == sv {
+					log.Fatalf("Find Circulatio Dependency!! \n \"%s\"  \"%s\" ", fk, values)
+				}
+			}
 		}
 	}
-
-	var keys []string
-	for key := range m {
-		keys = append(keys, key)
-	}
-	sort.Strings(keys)
-	visitAll(keys)
-	return order
 }
