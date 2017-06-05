@@ -1,0 +1,1 @@
+go run ex16.go
