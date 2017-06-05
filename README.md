@@ -10,3 +10,4 @@ Memo
 - [ビットを数える・探すアルゴリズム](http://www.nminoru.jp/~nminoru/programming/bitcount.html) ch02/ex03 - 05
 - [Frequently Asked Questions (FAQ)](https://golang.org/doc/faq#conversions)
 - [golang.tokyo＃4でGo開発環境Goglandのライブデモを見てきた](http://tech.mercari.com/entry/2017/03/23/124437)
+- [Re: Go言語感想文](http://mattn.kaoriya.net)  //テストについて
