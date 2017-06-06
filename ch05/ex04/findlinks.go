@@ -3,10 +3,15 @@ package main
 import "golang.org/x/net/html"
 import "os"
 import "github.com/tomatomaster/gotorial/gotorial"
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
 func main() {
-	doc, err := html.Parse(os.Stdin)
+	resp, _ := http.Get(os.Args[1])
+	defer resp.Body.Close()
+	doc, err := html.Parse(resp.Body)
 	gotorial.OSExitIfError(err)
 	for _, link := range visit(nil, doc) {
 		fmt.Println(link)
