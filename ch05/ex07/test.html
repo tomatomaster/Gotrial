@@ -1,2111 +1,451 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/xhtml" prefix="" lang="ja">
+<html>
   <head>
     
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  
+    <meta charset="utf-8"/>
     
-
+  
+    <meta name="generator" content="pandoc"/>
+    
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+    
+  
     <title>
-      fmt パッケージ - golang.jp
+      逆引きGolang
     </title>
     
-
-    <meta name="generator" content="WordPress 4.7.5"/>
-    
-
-    <meta name="robots" content="follow, all"/>
-    
-
-    <link rel="stylesheet" href="http://golang.jp/wp-content/themes/golang/style.css" type="text/css" media="screen"/>
-    
-
-    <link rel="alternate" type="application/rss+xml" title="%s RSS Feedgolang.jp" href="http://golang.jp/feed"/>
-    
-
-    <link rel="pingback" href="http://golang.jp/xmlrpc.php"/>
-    
-
-<!--[if IE]><link rel="stylesheet" href="http://golang.jp/wp-content/themes/golang/ie.css" type="text/css" media="screen" /><![endif]-->
-    
-
-<!--[if lte IE 6]><link rel="stylesheet" href="http://golang.jp/wp-content/themes/golang/ie6.css" type="text/css" media="screen" /><![endif]-->
-    
-
-    <script type="text/javascript" src="http://golang.jp/wp-content/themes/eos/default.js"/>
-    
-
-
-<!-- BEGIN Metadata added by the Add-Meta-Tags WordPress plugin -->
-    
-
-    <meta name="description" content="Go言語のfmtパッケージドキュメントの翻訳（http://golang.org/pkg/fmt/）です。"/>
-    
-
-    <meta name="keywords" content="golang,Go言語,パッケージ,ドキュメント,翻訳,日本語訳,fmt"/>
-    
-
-<!-- END Metadata added by the Add-Meta-Tags WordPress plugin -->
-    
-
-
-    <link rel="dns-prefetch" href="//s.w.org"/>
-    
-
-    <link rel="alternate" type="application/rss+xml" title="golang.jp » fmt パッケージ のコメントのフィード" href="http://golang.jp/pkg/fmt/feed"/>
-    
-		
-    <script type="text/javascript">
-      
-			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/golang.jp\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.5"}};
-			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
-		
-    </script>
-    
-		
+  
     <style type="text/css">
-      
-img.wp-smiley,
-img.emoji {
-	display: inline !important;
-	border: none !important;
-	box-shadow: none !important;
-	height: 1em !important;
-	width: 1em !important;
-	margin: 0 .07em !important;
-	vertical-align: -0.1em !important;
-	background: none !important;
-	padding: 0 !important;
-}
-
+      code{white-space: pre;}
     </style>
     
-
-    <link rel="https://api.w.org/" href="http://golang.jp/wp-json/"/>
+  
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
     
-
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://golang.jp/xmlrpc.php?rsd"/>
+  
+    <link rel="stylesheet" href="github.css"/>
     
-
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://golang.jp/wp-includes/wlwmanifest.xml"/>
-     
-
-    <meta name="generator" content="WordPress 4.7.5"/>
+  
+    <link rel="shortcut icon" href="favicon.ico"/>
     
-
-    <link rel="canonical" href="http://golang.jp/pkg/fmt"/>
+  
+    <link rel="stylesheet" href="./styles/github.css"/>
     
-
-    <link rel="shortlink" href="http://golang.jp/?p=1509"/>
+  
+    <script src="./highlight.pack.js"/>
     
-
-    <link rel="alternate" type="application/json+oembed" href="http://golang.jp/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fgolang.jp%2Fpkg%2Ffmt"/>
-    
-
-    <link rel="alternate" type="text/xml+oembed" href="http://golang.jp/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fgolang.jp%2Fpkg%2Ffmt&format=xml"/>
-    
-
-    <link rel="alternate" media="handheld" type="text/html" href="http://golang.jp/pkg/fmt"/>
-    
-	
-    <link type="text/css" rel="stylesheet" href="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
-    
-	
-    <link type="text/css" rel="stylesheet" href="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shThemeDefault.css"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shCore.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushBash.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushCpp.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushCSharp.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushCss.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushDelphi.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushDiff.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushGroovy.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJava.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJScript.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushPerl.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushPhp.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushPlain.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushPython.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushRuby.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushScala.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushSql.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushVb.js"/>
-    
-	
-    <script type="text/javascript" src="http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushXml.js"/>
-    
-	
-    <script type="text/javascript">
-      		
-		SyntaxHighlighter.config.clipboardSwf = 'http://golang.jp/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/clipboard.swf';
-		SyntaxHighlighter.all();
-	
+  
+    <script>
+      hljs.initHighlightingOnLoad();
     </script>
     
-	
+  
+    <style>
+      
+  * {
+      margin:0;
+      padding:0;
+  }
+  
+  body {
+      margin:0;
+      _overflow:hidden;
+      padding:0;
+  }
+  
+  #header {
+      background-color: #f8f8f8;
+      height: 60px; /* ヘッダーの高さ */
+      position: fixed;
+      top: 0;
+      width: 100%;
+  }
+  
+  #left_frame {
+      background-color: #f8f8f8;
+      height:100%;
+      left:0;
+      margin:0;
+  /*    padding:0;*/
+      position:fixed;
+      _position:absolute;
+      top:0px;
+  /*    top:60px; */
+      width:160px;
+      padding-bottom: 20px; /* フッターの高さ */
+  /*    padding-top: 60px;  */  /* ヘッダーの高さ */
+  }
+  
+  #right_frame {
+  /*    top: 60px;*/
+      padding-bottom: 20px; /* フッターの高さ */
+  /*    padding-top: 60px;*/    /* ヘッダーの高さ */
+      height:80%;
+      margin:0 0 0 170px;
+      _overflow:auto;
+  /*    padding:0;*/
+  }
+  
+  #footer {
+      background-color: #cccccc;
+      bottom: 0;
+      height: 20px; /* フッターの高さ */
+      position: fixed;
+      width: 100%;
+  }
+  
+  .gopher {
+       position: absolute; 
+       bottom:-80px;
+  }
+  
+  
+    </style>
+    
 
   </head>
   
 
-
   <body>
-    <a name="top"/>
-    <a id="skipToContent" href="#content">
-      Skip to content
-    </a>
     
 
-    <div class="PageContainer">
+    <div id="left_frame">
       
 
 
-      <div class="Header">
-        
-
-
-        <div class="HeaderMenu" id="HeaderMenu">
-          
-  
-          <ul>
-            
-		
-            <li>
-              <a href="http://golang.jp">
-                Home
-              </a>
-            </li>
-            
-  		
-            <li class="cat-item cat-item-8">
-              <a href="http://golang.jp/category/%e3%82%b3%e3%83%a9%e3%83%a0">
-                コラム
-              </a>
-              
-
-            </li>
-            
-	
-            <li class="cat-item cat-item-4">
-              <a href="http://golang.jp/category/%e3%83%89%e3%82%ad%e3%83%a5%e3%83%a1%e3%83%b3%e3%83%88">
-                ドキュメント
-              </a>
-              
-
-            </li>
-            
-	
-            <li class="cat-item cat-item-3">
-              <a href="http://golang.jp/category/%e3%83%8b%e3%83%a5%e3%83%bc%e3%82%b9">
-                ニュース
-              </a>
-              
-
-            </li>
-            
-	
-            <li class="cat-item cat-item-1">
-              <a href="http://golang.jp/category/%e6%9c%aa%e5%88%86%e9%a1%9e">
-                未分類
-              </a>
-              
-
-            </li>
-            
-	
-          </ul>
-          
-	
-          <span class="clear"/>
-          
-
-        </div>
-        
-
-
-        <div class="HeaderSubArea">
-          
-	
-          <h1>
-            <a href="http://golang.jp">
-              golang.jp
-            </a>
-          </h1>
-          
-	
-          <span>
-            プログラミング言語Goの情報サイト
-          </span>
-          
-	
-          <div class="SearchBox">
-            
-		
-            <form method="get" action="http://golang.jp/">
-              
-			
-              <input type="text" class="SearchQuery" id="SearchQuery" value="Search here..." name="s"/>
-              
-			
-              <input type="submit" name="submit" class="SearchButton" value="Find"/>
-              
-		
-            </form>
-            
-	
-          </div>
-          
-	
-          <div class="HeaderSubMenu" id="HeaderSubMenu">
-            
-		
-            <ul>
-              
-
-              <li class="page_item page-item-26">
-                <a href="http://golang.jp/about_go" title="Go言語とは">
-                  Go言語とは
-                </a>
-              </li>
-              
-
-              <li class="page_item page-item-3">
-                <a href="http://golang.jp/install" title="Go言語のインストール">
-                  Go言語のインストール
-                </a>
-              </li>
-              
-
-              <li class="page_item page-item-170">
-                <a href="http://golang.jp/go_tutorial" title="チュートリアル">
-                  チュートリアル
-                </a>
-              </li>
-              
-
-              <li class="page_item page-item-550">
-                <a href="http://golang.jp/effective_go" title="実践Go言語">
-                  実践Go言語
-                </a>
-              </li>
-              
-
-              <li class="page_item page-item-2383">
-                <a href="http://golang.jp/go_spec" title="Go言語仕様">
-                  Go言語仕様
-                </a>
-              </li>
-              
-
-              <li class="page_item page-item-253">
-                <a href="http://golang.jp/pkg" title="パッケージドキュメント">
-                  パッケージドキュメント
-                </a>
-              </li>
-              
-		
-            </ul>
-            
-		
-            <span class="clear"/>
-            
-	
-          </div>
-          
-
-        </div>
-         
-<!-- Closes .HeaderSubArea -->
-        
-
-
-      </div>
-       
-<!-- Closes .Header -->
-      
-
-      <a name="content"/>
-      
-
-
-      <div id="contentWrapper">
-        
-	
-        <div id="contentArea">
-          
-				
-          <div class="headerBar">
-            
-			
-            <div id="text-3" class="headerbox  widget_text">
-              			
-              <div class="textwidget">
-                <div style="color:#66f;padding-left:15px">
-                  
-Go言語とは、Googleが開発した新しいプログラミング言語です。
-                  <br/>
-                  
-当サイトではこの新しい言語についての情報を集約していきます。
-                  <br/>
-                  
-
-                  <span style="color:#f00">
-                    このサイトの主要コンテンツは、公式サイトの日本語訳です。右側のメニューから選んでください。
-                  </span>
-                  
-
-                </div>
-                
-
-                <hr/>
-              </div>
-              
-		
-            </div>
-            <div id="php_widget-4" class="headerbox  php_widget">
-              <table style="width:100%;border:none!important;">
-                
-    
-                <tbody>
-                  <tr>
-                    
-        
-                    <td align="left" width="250px" nowrap="">
-                      
-            
-                      <span class="prev_link">
-                        <a href="http://golang.jp/pkg/flag" title="flag パッケージ">
-                          ‹‹ flag パッケージ
-                        </a>
-                      </span>
-                              
-                    </td>
-                    
-        
-                    <td align="center" width="0px" nowrap="">
-                      
-            
-                      <span class="parent_link">
-                        <a href="http://golang.jp/pkg" title="パッケージドキュメント">
-                          パッケージドキュメント
-                        </a>
-                      </span>
-                              
-                    </td>
-                    
-        
-                    <td align="right" width="250px" nowrap="">
-                      
-            
-                      <span class="next_link">
-                        <a href="http://golang.jp/pkg/go-ast" title="go/ast パッケージ">
-                          go/ast パッケージ ››
-                        </a>
-                      </span>
-                              
-                    </td>
-                    
-    
-                  </tr>
-                  
-
-                </tbody>
-              </table>
-              
-
-            </div>
-            <div id="php_widget-5" class="headerbox  php_widget">
-              <style>
-                
-	.postTitle {margin-left: 0;}
-	.postMonth, .postDay {display: none;}
-
-              </style>
-              
-
-            </div>
-            		
-          </div>
-          
-		
-
-
-          <div class="post" id="post-1509">
-            
-	
-            <div class="postHeader">
-              
-		
-              <h2 class="postTitle">
-                <span/>
-                <a href="http://golang.jp/pkg/fmt" title="Permalink to fmt パッケージ">
-                  fmt パッケージ
-                </a>
-              </h2>
-              
-		
-              <span class="postMonth" title="2010">
-                12月
-              </span>
-              
-		
-              <span class="postDay" title="2010">
-                16
-              </span>
-              
-	
-            </div>
-            
-	
-            <div class="postContent">
-              <p>
-                <code>
-                  import "fmt"
-                </code>
-              </p>
-              
-
-              <p>
-                fmtパッケージは、フォーマットI/Oを実装しており、C言語のprintfおよびscanfと似た関数を持ちます。フォーマットの「書式」はC言語から派生していますが、より単純化されています。
-              </p>
-              
-
-              <p>
-                【書式化】
-              </p>
-              
-
-              <p>
-                書式:
-              </p>
-              
-
-              <p>
-                汎用:
-              </p>
-              
-
-              <pre>
-                %v	デフォルトフォーマットを適用した値
-	構造体を出力する際、+フラグ(%+v)を加えるとフィールド名が表示される
-%#v	この値をGo言語の構文で表現する
-%T	この値の型をGo言語の構文で表現する
-
-              </pre>
-              
-
-              <p>
-                論理値:
-              </p>
-              
-
-              <pre>
-                %t	単語、trueまたはfalse
-
-              </pre>
-              
-
-              <p>
-                整数:
-              </p>
-              
-
-              <pre>
-                %b	基数2
-%c	対応するUnicodeコードポイントによって表される文字
-%d	基数10
-%o	基数8
-%x	基数16、10以上の数には小文字(a-f)を使用
-%X	基数16、10以上の数には大文字(A-F)を使用
-%U	ユニコードフォーマット: U+1234; "U+%x"と同じ。デフォルトは、4桁
-              </pre>
-              
-
-              <p>
-                浮動小数と複素数
-              </p>
-              
-
-              <pre>
-                %e	科学的記数法、例: -1234.456e+78
-%E	科学的記数法、例: -1234.456E+78
-%f	指数なしの小数、例: 123.456
-%g	%e、%fのどちらか出力の短い方
-%G	%E、%fのどちらか出力の短い方
-
-              </pre>
-              
-
-              <p>
-                文字列とバイト型のスライス
-              </p>
-              
-
-              <pre>
-                %s	文字列またはスライスそのまま
-%q	Go言語の構文に従いダブルクォート形式でエスケープ
-%x	各バイトを2文字の16進数文字列として
-
-              </pre>
-              
-
-              <p>
-                ポインタ
-              </p>
-              
-
-              <pre>
-                %p	16進数文字列、先頭に0x
-
-              </pre>
-              
-
-              <p>
-                ‘u’フラグはありません。整数が符号なしの型であれば、符号なしとして出力されます。同様にオペランド(int8, int64)のサイズを指定する必要はありません。
-              </p>
-              
-
-              <p>
-                数値のとき、桁数と精度のフラグを使ってフォーマットの制御を行います。「桁数」にはフィールドの桁数を、「精度」は必要に応じて小数点以降の桁数を設定します。フォーマット%6.2fのとき、123.45と出力されます。このフィールドの桁数は、文字列のUnicodeコードポイントの数です。一方、C言語のprintfでのフィールドの桁数はバイト数です。フラグの片方、もしくは両方を、文字「*」としたときは、これらの値は、次のオペランド(int型でなけれればならない)から取得されます。
-              </p>
-              
-
-              <p>
-                その他のフラグ:
-              </p>
-              
-
-              <pre>
-                +	数値型のとき、常に符号を出力
--	パッドのスペースを左側ではなく右側に出力(フィールドの左寄せ)
-#	フォーマットの切替: 8進数(%#o)のとき先頭に0、16進数(%#x)のとき先頭に0x、
-	16進数(%#X)のとき先頭に0Xを出力。%p (%#p)のときは0xを出力しない。
-        %q (%#q)のとき、出力可能であれば生(シングルクォートされた)文字列を出力
-' '	(スペース) 数値で、符号が出力されなかったときに代わりにスペースを出力(% d)、
-	文字列またはスライスを16進数で出力したときにバイト間にスペースを出力(% x, % X)
-0	パッドとしてスペースの代わりに0を出力
-
-              </pre>
-              
-
-              <p>
-                各Printf系の関数には、フォーマットを指定する代わりに、全オペランドに%vを指定したことと等しいPrint関数がそれぞれ用意されています。同様に亜種であるPrintln関数は、オペランド間に空白を挿入し、最後に改行文字を出力します。
-              </p>
-              
-
-              <p>
-                書式に関係なく、オペランドがインタフェース値であるときは、インタフェースそのものではなく、その中で実装されている値が使われます。例です：
-              </p>
-              
-
-              <pre>
-                var i interface{} = 23
-fmt.Printf("%v\n", i)
-
-              </pre>
-              
-
-              <p>
-                これは23と出力されます。
-              </p>
-              
-
-              <p>
-                オペランドがFormatterインタフェースを実装していれば、フォーマットする際に細かい制御を行うことができます。
-              </p>
-              
-
-              <p>
-                オペランドがString() stringメソッドを実装しているときは、オブジェクトを文字列に変換するために使われます。その後、必要に応じて書式(指定されていれば)によってフォーマットされます。次のようなケースで、再帰が起こらないよう注意してください。
-              </p>
-              
-
-              <pre>
-                type X int
-func (x X) String() string { return Sprintf("%d", x) }
-
-              </pre>
-              
-
-              <p>
-                再帰する前に、キャストしてください。
-              </p>
-              
-
-              <pre>
-                func (x X) String() string { return Sprintf("%d", int(x)) }
-
-              </pre>
-              
-
-              <p>
-                【フォーマットエラー】
-              </p>
-              
-
-              <p>
-                文字列に書式%dを指定するなど、書式に対し不正な引数を与えたときは、次の例のように問題箇所を表す文字列が生成されます。
-              </p>
-              
-
-              <pre>
-                誤った型、または未定義の書式: %!verb(type=value)
-	Printf("%d", hi):          %!d(string=hi)
-引数が多すぎる: %!(EXTRA type=value)
-	Printf("hi", "guys"):      hi%!(EXTRA string=guys)
-引数が少なすぎる: %!verb(MISSING)
-	Printf("hi%d"):            hi %!d(MISSING)
-桁数、または精度にint型以外を指定: %!(BADWIDTH) または %!(BADPREC)
-	Printf("%*s", 4.5, "hi"):  %!(BADWIDTH)hi
-	Printf("%.*s", 4.5, "hi"): %!(BADPREC)hi
-
-              </pre>
-              
-
-              <p>
-                エラーはすべて、文字列「%!」で始まり、場合によっては、そのあとに一文字(書式)が続き、最後の括弧内に説明が入ります。
-              </p>
-              
-
-              <p>
-                【スキャン】
-              </p>
-              
-
-              <p>
-                書式化されたテキストを、値を得るためスキャンする関数群です。Scan、Scanf、Scanlnは、os.Stdinから読み込みます。Fscan、Fscanf、Fscanlnは、指定したos.Readerから読み込みます。Sscan、Sscanf、Sscanlnは、引数の文字列から読み込みます。Sscanln、Fscanln、Sscanlnは、改行文字でスキャンを停止するため、項目の後ろには改行文字が必須です。Sscanf、 Fscanf、Sscanfは、フォーマットの改行文字とマッチングさせるため、入力内に改行文字が必要です。それ以外の関数では、改行文字はスペースとして扱われます。
-              </p>
-              
-
-              <p>
-                Scanf、Fscanf、Sscanfは、フォーマット文字列に従い、Printfとおなじく引数を解析します。たとえば、%xは、16進数文字列を整数としてスキャンし、%vは、その値のデフォルト表現フォーマットでスキャンします。
-              </p>
-              
-
-              <p>
-                このフォーマットは、次の例外をのぞき、Printfのフォーマットと同じように扱われます。：
-              </p>
-              
-
-              <p>
-                %pは、実装されていません。%Tは、実装されていません。%e %E %f %F %g %gは、すべて同一で、浮動小数点、または複素数をスキャンします。%s と %vで文字列をスキャンしたときは、トークンはスペースで区切られているとみなします。
-                <br/>
-                
-桁数は、入力テキストの桁数として解釈されます。たとえば、%5sは、文字列をスキャンするため、最大5つのルーンを入力から読み込むことを意味します。ただし、スキャンの際に精度を指定する文法は用意されていません。(%5.2fとは書けず、%5fと書きます)
-              </p>
-              
-
-              <p>
-                フォーマットによるスキャンにおいて、スペース文字が連続したルーン(改行文字を除く)は、フォーマット文字列、入力共に「ひとつのスペース」と等価です。フォーマット文字列内のテキストは、この条件下で、入力からのテキストと一致しなければなりません。一致しないときは、スキャンは停止され、スキャン済みの引数の数を示す値を関数から返します。
-              </p>
-              
-
-              <p>
-                すべてのスキャン関数において、オペランドがScanメソッドを実装する(すなわち、Scannerインタフェースを実装する)とき、そのScanメソッドが、オペランドのテキストをスキャンするために使われます。また、指定した引数の数より、スキャンされた数が少ないときは、エラーが返されます。
-              </p>
-              
-
-              <p>
-                スキャンに使われる引数はすべて、基本型へのポインタか、もしくはスキャナインタフェースを実装している必要があります。
-              </p>
-              
-
-              <p>
-                注：Fscanなどは、入力から一文字(ルーン)余計に読み出すことがあります。これは、ループでスキャンルーチンを呼び出すと、数バイトがスキップされる可能性があることを示しています。これは通常、入力値の間にスペースがないときだけの問題です。ただし、Fscanに与えたreaderがUnreadRuneを実装していれば、このメソッドによって文字が保持され、連続した呼び出しにおいてデータが失われることを防げます。readerの機能を失うことなく、UnreadRuneメソッドを持たせるには、bufio.NewReaderを使ってください。
-              </p>
-              
-
-              <h4>
-                パッケージファイル
-              </h4>
-              
-
-              <p style="padding-left: 30px;">
-                doc.go format.go print.go scan.go
-              </p>
-              
-
-              <h2 id="Constants">
-                定数
-              </h2>
-              
-
-              <pre>
-                const EOF = -1
-              </pre>
-              
-
-              <h2 id="Errorf">
-                Errorf関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Errorf(format string, a ...interface{}) os.Error
-                </code>
-              </p>
-              
-
-              <p>
-                Errorfは、指定したフォーマットに従いフォーマットし、os.Errorインタフェースを満たすos.ErrorStringへ文字列を変換して返します。
-              </p>
-              
-
-              <h2 id="Fprint">
-                Fprint関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Fprint(w io.Writer, a ...interface{}) (n int, error  os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Fprintは、オペランドをデフォルトのフォーマットでフォーマットし、wに書きこみます。オペランドがどちらも文字列でないときは、間にスペースを挿入します。この関数は、書き込んだバイト数と発生した書き込みエラーを返します。
-              </p>
-              
-
-              <h2 id="Fprintf">
-                Fprintf関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Fprintf(w io.Writer, format string, a ...interface{}) (n  int, error os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Fprintfは、指定されたフォーマットに従ってフォーマットを行い、wに書きこみます。この関数は、書き込んだバイト数と発生した書き込みエラーを返します。
-              </p>
-              
-
-              <h2 id="Fprintln">
-                Fprintln関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Fprintln(w io.Writer, a ...interface{}) (n int, error  os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Fprintlnは、オペランドをデフォルトのフォーマットでフォーマットし、wに書きこみます。オペランド間には常にスペースが挿入され、最後に改行文字を出力します。この関数は、書き込んだバイト数と発生した書き込みエラーを返します。
-              </p>
-              
-
-              <h2 id="Fscan">
-                Fscan関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Fscan(r io.Reader, a ...interface{}) (n int, err os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Fscanは、rから読み込んだテキストをスキャンし、スペースで区切られた値として、順に引数に格納します。改行文字はスペースとしてカウントされます。この関数はスキャンに成功した項目数を返します。この数が、引数の数より少ないときは、errにその理由を返します。
-              </p>
-              
-
-              <h2 id="Fscanf">
-                Fscanf関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Fscanf(r io.Reader, format string, a ...interface{}) (n  int, err os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Fscanfは、rから読み込んだテキストをスキャンし、フォーマットに従い、スペースで区切られた値として、順に引数に格納します。この関数はスキャンに成功した項目数を返します。
-              </p>
-              
-
-              <h2 id="Fscanln">
-                Fscanln関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Fscanln(r io.Reader, a ...interface{}) (n int, err  os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Fscanlnは、Fscanと同じですが、改行文字でスキャンを停止します。そのため、最後の項目の後ろは、改行文字かEOFでなければなりません。
-              </p>
-              
-
-              <h2 id="Print">
-                Print関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Print(a ...interface{}) (n int, errno os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Printは、オペランドをデフォルトのフォーマットでフォーマットし、標準出力に書きこみます。オペランドがどちらも文字列でないときは、間にスペースを挿入します。この関数は、書き込んだバイト数と発生した書き込みエラーを返します。
-              </p>
-              
-
-              <h2 id="Printf">
-                Printf関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Printf(format string, a ...interface{}) (n int, errno  os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Printf は、指定されたフォーマットに従ってフォーマットを行い、標準出力に書きこみます。この関数は、書き込んだバイト数と発生した書き込みエラーを返します。
-              </p>
-              
-
-              <h2 id="Println">
-                Println関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Println(a ...interface{}) (n int, errno os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Printlnは、オペランドをデフォルトのフォーマットでフォーマットし、標準出力に書きこみます。オペランド間には常にスペースが挿入され、最後に改行文字を出力します。この関数は、書き込んだバイト数と発生した書き込みエラーを返します。
-              </p>
-              
-
-              <h2 id="Scan">
-                Scan関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Scan(a ...interface{}) (n int, err os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Scanは、標準入力から読み込んだテキストをスキャンし、スペースで区切られた値として、順に引数に格納します。改行文字はスペースとしてカウントされます。この関数はスキャンに成功した項目数を返します。この数が、引数の数より少ないときは、errにその理由を返します。
-              </p>
-              
-
-              <h2 id="Scanf">
-                Scanf関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Scanf(format string, a ...interface{}) (n int, err  os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Scanfは、標準入力から読み込んだテキストをスキャンし、フォーマットに従い、スペースで区切られた値として、順に引数に格納します。この関数はスキャンに成功した項目数を返します。
-              </p>
-              
-
-              <h2 id="Scanln">
-                Scanln関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Scanln(a ...interface{}) (n int, err os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Scanlnは、Scanと同じですが、改行文字でスキャンを停止します。そのため、最後の項目の後ろは、改行文字かEOFでなければなりません。
-              </p>
-              
-
-              <h2 id="Sprint">
-                Sprint関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Sprint(a ...interface{}) string
-                </code>
-              </p>
-              
-
-              <p>
-                Sprintは、オペランドをデフォルトのフォーマットでフォーマットし、結果を文字列で返します。オペランドがどちらも文字列でないときは、間にスペースを挿入します。
-              </p>
-              
-
-              <h2 id="Sprintf">
-                Sprintf関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Sprintf(format string, a ...interface{}) string
-                </code>
-              </p>
-              
-
-              <p>
-                Sprintfは、指定されたフォーマットに従ってフォーマットを行い、結果を文字列で返します。
-              </p>
-              
-
-              <h2 id="Sprintln">
-                Sprintln関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Sprintln(a ...interface{}) string
-                </code>
-              </p>
-              
-
-              <p>
-                Sprintlnは、オペランドをデフォルトのフォーマットでフォーマットし、結果を文字列で返します。オペランド間には常にスペースが挿入され、最後に改行文字を出力します。
-              </p>
-              
-
-              <h2 id="Sscan">
-                Sscan関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Sscan(str string, a ...interface{}) (n int, err os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Sscanは、引数の文字列をススキャンし、スペースで区切られた値として、順に引数に格納します。改行文字はスペースとしてカウントされます。この関数はスキャンに成功した項目数を返 します。この数が、引数の数より少ないときは、errにその理由を返します。
-              </p>
-              
-
-              <h2 id="Sscanf">
-                Sscanf関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Sscanf(str string, format string, a ...interface{}) (n  int, err os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Sscanfは、引数の文字列をスキャンし、フォーマットに従い、スペースで区切られた値として、順に引数に格納します。この関数はスキャンに成功した項目数を返します。
-              </p>
-              
-
-              <h2 id="Sscanln">
-                Sscanln関数
-              </h2>
-              
-
-              <p>
-                <code>
-                  func Sscanln(str string, a ...interface{}) (n int, err  os.Error)
-                </code>
-              </p>
-              
-
-              <p>
-                Sscanlnは、Scanと同じですが、改行文字でスキャンを停止します。そのため、最後の項目の後ろは、改行文字かEOFでなければなりません。
-              </p>
-              
-
-              <h2 id="Formatter">
-                Formatter型
-              </h2>
-              
-
-              <p>
-                Formatterは、カスタムフォーマッタを持つ値に実装されるインタフェースです。実装したFormatメソッドはSprintfやFprintf(f)などから呼び出され、各々の出力を生成します。
-              </p>
-              
-
-              <pre>
-                type Formatter interface {
-    Format(f State, c int)
-}
-              </pre>
-              
-
-              <h2 id="GoStringer">
-                GoStringer型
-              </h2>
-              
-
-              <p>
-                GoStringerは、値のGo言語の構文を規定するGoString()メソッドによって実装されます。GoStringメソッドは、%#vフォーマットへ渡されたオペランドの値を出力するために使われます。
-              </p>
-              
-
-              <pre>
-                type GoStringer interface {
-    GoString() string
-}
-              </pre>
-              
-
-              <h2 id="ScanState">
-                ScanState型
-              </h2>
-              
-
-              <p>
-                ScanStateは、カスタムスキャナに渡されるスキャナの状態を表します。スキャナでは、一つのルーンをスキャンをするか、もしくはScanStateに次のスペースで区切られたトークンを見つけるよう依頼します。
-              </p>
-              
-
-              <pre>
-                type ScanState interface {
-    // GetRuneは、入力から次のルーン(Unicodeコードポイント)を読み込みます。
-    GetRune() (rune int, err os.Error)
-    // UngetRuneは、次回のGetRuneの呼び出しでこのルーンが返されるようにします。
-    UngetRune()
-    // Widthは、桁数オプションの値と、それが設定されているかを返します。
-    // 単位は、Unicodeコードポイントです。
-    Width() (wid int, ok bool)
-    // Tokenは、入力からスペースで区切り換算で、次のトークンを返します。
-    // 桁数が指定されているときは、返されるトークンがその桁数を
-    // 超えることはありません。
-    Token() (token string, err os.Error)
-}
-              </pre>
-              
-
-              <h2 id="Scanner">
-                Scanner型
-              </h2>
-              
-
-              <p>
-                Scanメソッドを持つ値によって実装されるScannerは、入力をスキャンして値を取得し、その結果をレシーバに格納します。そのため、レシーバはポインタでなければなりません。ScanまたはScanln関数への引数が、このScannerインタフェースを実装しているときにScanメソッドが呼び出されます。
-              </p>
-              
-
-              <pre>
-                type Scanner interface {
-    Scan(state ScanState, verb int) os.Error
-}
-              </pre>
-              
-
-              <h2 id="State">
-                State型
-              </h2>
-              
-
-              <p>
-                Stateは、カスタムフォーマッタに渡される出力状態を表します。これはio.Writerインタフェースへのアクセスに加え、オペランドのフォーマットで指定されているフラグとオプション情報を提供します。
-              </p>
-              
-
-              <pre>
-                type State interface {
-    // Writeは、フォーマット結果を出力するために呼び出す関数です。
-    Write(b []byte) (ret int, err os.Error)
-    // Widthは、桁数オプションの値と、それが設定されているかを返します。
-    Width() (wid int, ok bool)
-    // Precisionは、精度オプションの値と、それが設定されているかを返します。
-    Precision() (prec int, ok bool)
-
-    // Flagは、フラグ(文字)がセットされているかどうかを返します。
-    Flag(int) bool
-}
-              </pre>
-              
-
-              <h2 id="Stringer">
-                Stringer型
-              </h2>
-              
-
-              <p>
-                Stringerは、値の「ネイティブ」フォーマットを規定するString ()メソッドによって実装されます。このStringメソッドは、%s、%vフォーマットまたはPrintのようなフォーマットを伴わない出力メソッドに渡された値を出力するときに使われます。
-              </p>
-              
-
-              <pre>
-                type Stringer interface {
-    String() string
-}
-              </pre>
-              
-
-            </div>
-            
-	
-            <div class="postLinkPages"/>
-            
-	
-            <div class="postFooter">
-              
-			
-            </div>
-            
-
-          </div>
-          
-
-
-          <div id="comments">
-            
-	
-            <div class="commentHeader">
-              
-				
-              <span class="addTrackback">
-                <a href="http://golang.jp/pkg/fmt/trackback">
-                  Trackback
-                </a>
-              </span>
-              
-		
-              <h4>
-                Comments
-              </h4>
-              
-
-            </div>
-            
-			
-            <p class="nocomments">
-              Comments are closed.
-            </p>
-            
-	
-          </div>
-          
-
-
-
-          <div class="footerBar">
-            
-	
-            <div id="php_widget-3" class="footerbox  php_widget">
-              <table style="width:100%;border:none!important;">
-                
-    
-                <tbody>
-                  <tr>
-                    
-        
-                    <td align="left" width="250px" nowrap="">
-                      
-            
-                      <span class="prev_link">
-                        <a href="http://golang.jp/pkg/flag" title="flag パッケージ">
-                          ‹‹ flag パッケージ
-                        </a>
-                      </span>
-                              
-                    </td>
-                    
-        
-                    <td align="center" width="0px" nowrap="">
-                      
-            
-                      <span class="parent_link">
-                        <a href="http://golang.jp/pkg" title="パッケージドキュメント">
-                          パッケージドキュメント
-                        </a>
-                      </span>
-                              
-                    </td>
-                    
-        
-                    <td align="right" width="250px" nowrap="">
-                      
-            
-                      <span class="next_link">
-                        <a href="http://golang.jp/pkg/go-ast" title="go/ast パッケージ">
-                          go/ast パッケージ ››
-                        </a>
-                      </span>
-                              
-                    </td>
-                    
-    
-                  </tr>
-                  
-
-                </tbody>
-              </table>
-              
-
-            </div>
-          </div>
-          
-
-
-
-        </div>
-        
-
-
-        <div class="SideBars">
-          
-
-          <div class="SidebarButtons">
-            
-	
-            <a class="RssButton" href="http://golang.jp/feed">
-              golang.jp
-            </a>
-            	
-          </div>
-          
-
-          <div class="SideBar_Full">
-            
-	
-            <ul>
-              
-	
-	
-              <li id="text-4" class="sidebaritem widget_text">
-                <div class="sidebarbox">
-                  <h2 class="widgettitle">
-                    Goを始める
-                  </h2>
-                  			
-                  <div class="textwidget">
-                    <ul>
-                      
-
-
-                      <li class="page_item">
-                        <a href="/about_go">
-                          Go言語とは
-                        </a>
-                      </li>
-                      
-
-
-                      <li class="page_item">
-                        
-	
-                        <a href="/install">
-                          Go言語のインストール[日本語訳]
-                        </a>
-                        
-	- 
-                        <a href="http://golang.org/doc/install.html" target="_blank" title="Installing Go">
-                          [原文]
-                        </a>
-                      </li>
-                      
-
-
-                    </ul>
-                  </div>
-                  
-		
-                </div>
-              </li>
-              <li id="text-6" class="sidebaritem widget_text">
-                <div class="sidebarbox">
-                  <h2 class="widgettitle">
-                    Goを学ぶ
-                  </h2>
-                  			
-                  <div class="textwidget">
-                    <ul>
-                      
-
-
-                      <li class="page_item">
-                        
-	
-                        <a href="/go_tutorial">
-                          チュートリアル[日本語訳]
-                        </a>
-                        
-	- 
-                        <a href="http://golang.org/doc/go_tutorial.html" target="_blank" title="A Tutorial for the Go Programming Language">
-                          [原文]
-                        </a>
-                      </li>
-                      
-
-
-                      <li class="page_item">
-                        
-	
-                        <a href="/effective_go">
-                          実践Go言語[日本語訳]
-                        </a>
-                        
-	- 
-                        <a href="http://golang.org/doc/effective_go.html" target="_blank" title="Effective Go">
-                          [原文]
-                        </a>
-                      </li>
-                      
-
-
-                      <li class="page_item">
-                        
-	
-                        <a href="/go_faq">
-                          FAQ[日本語訳]
-                        </a>
-                        
-	- 
-                        <a href="http://golang.org/doc/go_faq.html" target="_blank" title="FAQ">
-                          [原文]
-                        </a>
-                      </li>
-                      
-
-
-                      <li class="page_item">
-                        
-	
-                        <a href="/code">
-                          Goコードの書き方[日本語訳]
-                        </a>
-                        
-	- 
-                        <a href="http://golang.org/doc/code.html" target="_blank" title="How to Write Go Code">
-                          [原文]
-                        </a>
-                      </li>
-                      
-
-
-                      <li class="page_item">
-                        
-	
-                        <a href="/codelab-wiki">
-                          Codelab: Webアプリ[日本語訳]
-                        </a>
-                        
-	- 
-                        <a href="http://golang.org/doc/codelab/wiki/" target="_blank" title="Codelab: Writing Web Applications">
-                          [原文]
-                        </a>
-                      </li>
-                      
-
-
-                      <li class="page_item">
-                        
-	
-                        <a href="/go_for_cpp_programmers">
-                          C++プログラマ向けGo講座[日本語訳]
-                        </a>
-                        
-	- 
-                        <a href="http://golang.org/doc/go_for_cpp_programmers.html" target="_blank" title="Go For C++ Programmers">
-                          [原文]
-                        </a>
-                      </li>
-                      
-
-
-                    </ul>
-                  </div>
-                  
-		
-                </div>
-              </li>
-              <li id="text-5" class="sidebaritem widget_text">
-                <div class="sidebarbox">
-                  <h2 class="widgettitle">
-                    Goのリファレンス
-                  </h2>
-                  			
-                  <div class="textwidget">
-                    <ul>
-                      
-
-
-                      <li class="page_item">
-                        
-	
-                        <a href="/pkg">
-                          パッケージドキュメント[日本語訳]
-                        </a>
-                        
-	- 
-                        <a href="http://golang.org/pkg" target="_blank" title="Package documentation">
-                          [原文]
-                        </a>
-                      </li>
-                      
-
-
-                      <li class="page_item">
-                        
-	
-                        <a href="/go_spec">
-                          Goプログラミング言語仕様[日本語訳]
-                        </a>
-                        
-	- 
-                        <a href="http://golang.org/doc/go_spec.html" target="_blank" title="The Go Programming Language Specification">
-                          [原文]
-                        </a>
-                      </li>
-                      
-
-
-                      <li class="page_item">
-                        
-	
-                        <a href="/go_mem">
-                          Goのメモリモデル[日本語訳]
-                        </a>
-                        
-	- 
-                        <a href="http://golang.org/doc/go_mem.html" target="_blank" title="The Go Memory Model">
-                          [原文]
-                        </a>
-                      </li>
-                      
-
-
-                    </ul>
-                  </div>
-                  
-		
-                </div>
-              </li>
-              <li id="text-10" class="sidebaritem widget_text">
-                <div class="sidebarbox">
-                  <h2 class="widgettitle">
-                    書籍のご案内
-                  </h2>
-                  			
-                  <div class="textwidget">
-                    <div>
-                      
-
-                      <div style="float:left">
-                        
-
-                        <a href="http://www.c-r.com/book/detail/897" target="_blank">
-                          
-
-                          <img src="http://golang.jp/images/book.jpg" width="110" height="156"/>
-                          
-
-                        </a>
-                        
-
-                      </div>
-                      
-
-                      <div style="float:left;margin-left:10px">
-                        
-
-                        <a href="http://www.c-r.com/book/detail/897" target="_blank">
-                          
-基礎からわかるGo言語
-
-                        </a>
-                        
-
-                        <p>
-                          
-ISBN：978-4-86354-117-7
-                          <br/>
-                          
-A5判/ソフトカバー
-                          <br/>
-                          
-11月20日発売予定
-                          <br/>
-                          
-
-                        </p>
-                        
-
-                      </div>
-                      
-
-                    </div>
-                    
-
-                    <div style="clear:both">
-                      
-
-                    </div>
-                  </div>
-                  
-		
-                </div>
-              </li>
-              <li id="text-9" class="sidebaritem widget_text">
-                <div class="sidebarbox">
-                  <h2 class="widgettitle">
-                    広告
-                  </h2>
-                  			
-                  <div class="textwidget">
-                    <div style="margin-left:10px">
-                      
-
-                      <script type="text/javascript">
-                        <!--
-google_ad_client = "ca-pub-0582685017356115";
-/* golang スクエア */
-google_ad_slot = "6341746930";
-google_ad_width = 250;
-google_ad_height = 250;
-//-->
-
-                      </script>
-                      
-
-                      <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-                        
-
-                      </script>
-                      
-
-                    </div>
-                  </div>
-                  
-		
-                </div>
-              </li>
-              <li id="text-8" class="sidebaritem widget_text">
-                <div class="sidebarbox">
-                  <h2 class="widgettitle">
-                    その他
-                  </h2>
-                  			
-                  <div class="textwidget">
-                    <ul>
-                      
-
-
-                      <li class="page_item">
-                        
-	
-                        <a href="/devel-roadmap">
-                          Goロードマップ[日本語訳]
-                        </a>
-                        
-	- 
-                        <a href="http://golang.org/doc/devel/roadmap.html" target="_blank" title="Roadmap">
-                          [原文]
-                        </a>
-                      </li>
-                      
-
-
-                    </ul>
-                  </div>
-                  
-		
-                </div>
-              </li>
-              <li id="linkcat-5" class="sidebaritem widget_links">
-                <div class="sidebarbox">
-                  <h2 class="widgettitle">
-                    リンク
-                  </h2>
-                  
-	
-                  <ul class="xoxo blogroll">
-                    
-
-                    <li>
-                      <a href="http://golang.org/" title="Go言語公式サイト" target="_blank">
-                        golang.org
-                      </a>
-                      
-Go言語公式サイト
-                    </li>
-                    
-
-                    <li>
-                      <a href="http://qa-honpo.com/index.php?cid=154" title="Go言語関連のQ&A" target="_blank">
-                        Ｑ＆Ａ本舗
-                      </a>
-                      
-Go言語関連のQ&A
-                    </li>
-                    
-
-	
-                  </ul>
-                  
-
-                </div>
-              </li>
-              
-
-              <li id="archives-3" class="sidebaritem widget_archive">
-                <div class="sidebarbox">
-                  <h2 class="widgettitle">
-                    アーカイブ
-                  </h2>
-                  		
-                  <ul>
-                    
-			
-                    <li>
-                      <a href="http://golang.jp/date/2013/05">
-                        2013年5月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2012/10">
-                        2012年10月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2012/08">
-                        2012年8月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2012/05">
-                        2012年5月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2012/04">
-                        2012年4月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2012/03">
-                        2012年3月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2011/09">
-                        2011年9月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2011/08">
-                        2011年8月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2011/05">
-                        2011年5月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2011/04">
-                        2011年4月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2011/02">
-                        2011年2月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2011/01">
-                        2011年1月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2010/12">
-                        2010年12月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2010/11">
-                        2010年11月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2010/08">
-                        2010年8月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2010/07">
-                        2010年7月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2010/06">
-                        2010年6月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2010/05">
-                        2010年5月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2010/04">
-                        2010年4月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2010/03">
-                        2010年3月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2010/02">
-                        2010年2月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2010/01">
-                        2010年1月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2009/12">
-                        2009年12月
-                      </a>
-                    </li>
-                    
-	
-                    <li>
-                      <a href="http://golang.jp/date/2009/11">
-                        2009年11月
-                      </a>
-                    </li>
-                    
-		
-                  </ul>
-                  
-		
-                </div>
-              </li>
-              	
-	
-            </ul>
-            
-
-          </div>
-<!-- Closes .SideBar_Full -->
-          
-
-          <div class="SideBar_Left">
-            
-	
-            <ul>
-              
-		
-	
-              <li>
-                
-	
-                <div class="sidebarbox">
-                  
-	
-                  <h2>
-                    Categories
-                  </h2>
-                  
-	
-                  <ul>
-                    
-			
-                    <li class="cat-item cat-item-8">
-                      <a href="http://golang.jp/category/%e3%82%b3%e3%83%a9%e3%83%a0">
-                        コラム
-                      </a>
-                      
-
-                    </li>
-                    
-	
-                    <li class="cat-item cat-item-4">
-                      <a href="http://golang.jp/category/%e3%83%89%e3%82%ad%e3%83%a5%e3%83%a1%e3%83%b3%e3%83%88">
-                        ドキュメント
-                      </a>
-                      
-
-                    </li>
-                    
-	
-                    <li class="cat-item cat-item-3">
-                      <a href="http://golang.jp/category/%e3%83%8b%e3%83%a5%e3%83%bc%e3%82%b9">
-                        ニュース
-                      </a>
-                      
-
-                    </li>
-                    
-	
-                    <li class="cat-item cat-item-1">
-                      <a href="http://golang.jp/category/%e6%9c%aa%e5%88%86%e9%a1%9e">
-                        未分類
-                      </a>
-                      
-
-                    </li>
-                    
-	
-                  </ul>
-                  
-	
-                </div>
-                
-	
-              </li>
-              
-	
-		
-            </ul>
-            
-
-          </div>
-<!-- Closes .SideBar_Left -->
-          
-
-          <div class="SideBar_Right">
-            
-	
-            <ul>
-              
-		
-	
-              <li>
-                
-	
-                <div class="sidebarbox">
-                  
-	
-                  <h2>
-                    Meta
-                  </h2>
-                  
-	
-                  <ul>
-                    
-				
-                    <li>
-                      <a href="http://golang.jp/wp-login.php">
-                        ログイン
-                      </a>
-                    </li>
-                    
-		
-                    <li>
-                      <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional">
-                        Valid 
-                        <abbr title="eXtensible HyperText Markup Language">
-                          XHTML
-                        </abbr>
-                      </a>
-                    </li>
-                    
-			
-                  </ul>
-                  
-	
-                </div>
-                
-	
-              </li>
-              
-	
-		
-            </ul>
-            
-
-          </div>
-<!-- Closes .SideBar_Right -->
-          
-
-          <div class="SideBar_Full_Bottom">
-            
-	
-            <ul>
-              
-	
-			
-	
-            </ul>
-            
-
-          </div>
-<!-- Closes .SideBar_Full -->
-          
-
-        </div>
-<!-- Closes .SideBars -->
-        
-
-
-
-
-      </div>
-      
-
-      <div class="Footer">
-        
-	
-        <span class="copyright">
-          Copyright © 2009-2010 
-          <a href="http://www.abell.co.jp" taraget="_blank alt=" 株式会社エイベル"="">
-            株式会社エイベル
-          </a>
-        </span>
-        
-	
-        <span class="themeInfo">
-          Design by 
-          <a href="http://www.srssolutions.com/en/" title="SRS Internet Marketing Solutions">
-            SRS Solutions
-          </a>
-        </span>
-        
-	
-        <a class="moveToTop" href="#top">
-          top
+      <h2>
+        <a href="./index.html" style="text-decoration: none;">
+          逆引きGolang
         </a>
-        
-
-      </div>
-<!-- Closes .Footer -->
+      </h2>
       
 
+
+      <ul>
+        
+
+        <li>
+          <a href="tips_string.html">
+            文字列
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_time.html">
+            日付と時刻
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_num.html">
+            数値
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_slice.html">
+            配列
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_map.html">
+            マップ
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_regexp.html">
+            正規表現
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_file.html">
+            ファイル
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_dir.html">
+            ディレクトリ
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_goroutine.html">
+            goroutine
+          </a>
+        </li>
+        
+
+
+<!--
+<li><a href="tips_goroutine.html">goroutine</a></li>
+-->
+        
+
+      </ul>
+      
+
+      <img src="gopher.png" class="gopher"/>
+      
 
     </div>
-<!-- Closes .PageContainer -->
+    
+
+    <div id="right_frame">
+      
+
+      <div align="right">
+        
+
+        <script type="text/javascript">
+          <!--
+google_ad_client = "pub-2467608495925250";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text";
+google_ad_channel = "";
+google_color_border = "CCCCCC";
+google_color_bg = "FFFFFF";
+google_color_link = "4183C4";
+google_color_text = "333333";
+google_color_url = "4183C4";
+//-->
+
+        </script>
+        
+
+        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+          
+  
+        </script>
+        
+
+      </div>
+      
+
+      <header>
+        
+
+        <h1 class="title">
+          逆引きGolang
+        </h1>
+        
+
+      </header>
+      
+
+      <h2 id="これはなにか">
+        これはなにか
+      </h2>
+      
+
+      <p>
+        <a href="http://www.namaraii.com/rubytips">
+          逆引きRuby
+        </a>
+        の内容をGolang化しつつあるものです。
+      </p>
+      
+
+      <p>
+        当方も初学者なので、いろいろといい加減なコードが含まれると思いますが そのつもりでご参照ください。 Go 1.4.1 で確認しています。Golangは仕様変更が激しいので、都度仕様を確認ください。
+      </p>
+      
+
+      <p>
+        なお、ソースコードは
+        <a href="https://github.com/ashitani/golangtips">
+          Githubに置いてあります
+        </a>
+        ので、 何かあればPull Requestでお知らせください。
+      </p>
+      
+
+      <p>
+        なお、当初から予定していたファイル系とgoroutineまでなんとか書き上げたので、 ここでいったん更新を終了します(2015/08/12)。
+      </p>
+      
+
+      <h2 id="目次">
+        目次
+      </h2>
+      
+
+      <ul>
+        
+
+        <li>
+          <a href="tips_string.html">
+            文字列
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_time.html">
+            日付と時刻
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_num.html">
+            数値
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_slice.html">
+            配列
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_map.html">
+            マップ
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_regexp.html">
+            正規表現
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_file.html">
+            ファイル
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_dir.html">
+            ディレクトリ
+          </a>
+        </li>
+        
+
+        <li>
+          <a href="tips_goroutine.html">
+            goroutine
+          </a>
+        </li>
+        
+
+      </ul>
+      
+
+      <h2 id="credits">
+        Credits
+      </h2>
+      
+
+      <ul>
+        
+
+        <li>
+          <p>
+            <a href="http://www.namaraii.com/rubytips">
+              RubyTips
+            </a>
+             is founded by 
+            <a href="http://www.namaraii.com/">
+              TAKEUCHI Hitoshi
+            </a>
+            .
+          </p>
+        </li>
+        
+
+        <li>
+          HTMLs are generated by 
+          <a href="http://pandoc.org/">
+            Pandoc
+          </a>
+           and decorated by 
+          <a href="https://gist.github.com/andyferra/2554919">
+            github.css
+          </a>
+          .
+        </li>
+        
+
+        <li>
+          <p>
+            Golang codes are highlighted by 
+            <a href="https://highlightjs.org/">
+              highlight.js
+            </a>
+            , which is released under the 
+            <a href="./LICENSE.highlightjs.txt">
+              BSD License
+            </a>
+            .
+          </p>
+        </li>
+        
+
+        <li>
+          The Go gopher was designed by 
+          <a href="http://reneefrench.blogspot.com/">
+            Renee French
+          </a>
+          . The gopher vector data was made by 
+          <a href="http://u.hinoichi.net">
+            Takuya Ueda
+          </a>
+          . Licensed under the Creative Commons 3.0 Attributions license.
+        </li>
+        
+
+        <li>
+          <p>
+            The Gppher favicon was designed by 
+            <a href="https://github.com/mccoyst/Gophers">
+              mccoyst
+            </a>
+          </p>
+        </li>
+        
+
+      </ul>
+      
+
+    </div>
     
 
 
+    <div id="footer" align="right">
+      
+This page is created by 
+      <a href="https://github.com/ashitani">
+        T.Ashitani
+      </a>
+      
 
-
-
-    <script type="text/javascript" src="http://golang.jp/wp-includes/js/comment-reply.min.js?ver=4.7.5"/>
+    </div>
     
 
-    <script type="text/javascript" src="http://golang.jp/wp-includes/js/wp-embed.min.js?ver=4.7.5"/>
-    
 
 
   </body>
