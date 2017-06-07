@@ -8,6 +8,7 @@ import (
 )
 
 func TestEx18(t *testing.T) {
+
 	err := errors.New("Dummy")
 	f, _ := os.Create("file")
 	closeFile(f, &err)

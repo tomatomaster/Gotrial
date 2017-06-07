@@ -1,32 +1,28 @@
 package main
 
-import "testing"
-
-var prereqs = map[string][]string{
-	"algorithms": {"data structures"},
-	"calculus":   {"linear algebra"},
-
-	"compilers": {
-		"data structures",
-		"formal languages",
-		"computer organization",
-	},
-
-	"data structures":       {"discrete math"},
-	"databases":             {"data structures"},
-	"discrete math":         {"intro to programming"},
-	"formal languages":      {"discrete math"},
-	"networks":              {"operating systems"},
-	"operating systems":     {"data structures", "computer organization"},
-	"programming languages": {"data structures", "computer organization"},
-}
+import (
+	"testing"
+)
 
 func TestEx10(t *testing.T) {
+	prereqs := map[string][]string{
+		"algorithms": {"data structures"},
+
+		"data structures": {"discrete math"},
+		"discrete math":   {"intro to programming"},
+	}
+
+	correct := map[string]int{
+		"intro to programming": 1,
+		"discrete math":        2,
+		"data structures":      3,
+		"algorithms":           4,
+	}
+
 	result := topoSort(prereqs)
 	for key, index := range result {
-		chils := prereqs[key]
-		for c := range chils {
-			result[c]++
+		if correct[key] != index {
+			t.Fatalf("Expected: %v, But: %v", correct[key], index)
 		}
 	}
 }

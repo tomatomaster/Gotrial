@@ -3,15 +3,16 @@ package main
 import "fmt"
 
 func main() {
-	defer magic()
-	r := recover()
-	fmt.Print(r)
+	fmt.Println(*magic())
 }
 
-func magic() {
-	if r := recover(); r != nil {
-
-	}
-
-	panic("panic")
+func magic() (p *interface{}) {
+	p = new(interface{})
+	defer func() {
+		r := recover()
+		if r != nil {
+			*p = r
+		}
+	}()
+	panic("panic panic!")
 }
