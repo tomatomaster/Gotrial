@@ -11,3 +11,7 @@ Memo
 - [Frequently Asked Questions (FAQ)](https://golang.org/doc/faq#conversions)
 - [golang.tokyo＃4でGo開発環境Goglandのライブデモを見てきた](http://tech.mercari.com/entry/2017/03/23/124437)
 - [Re: Go言語感想文](http://mattn.kaoriya.net)  //テストについて
+
+Gogland
+- quickdocumentationの設定
+  - Editor -> General -> Show quick ... move

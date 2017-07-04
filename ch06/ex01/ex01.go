@@ -46,7 +46,7 @@ func main() {
 	fmt.Println(s.Len())
 	c := s.Copy()
 	c.Add(1)
-	fmt.Printf("Clen %v oriLen %v\n", c.Len(), s.Len())
+	fmt.Printf("Len() Copy %v Original %v\n", c.Len(), s.Len())
 
 	fmt.Printf("%v %v", s.Len(), s.Has(127))
 }

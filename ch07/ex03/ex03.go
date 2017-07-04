@@ -19,6 +19,10 @@ func Sort(values []int) {
 	appendValues(values[:0], root)
 }
 
+func (m map[string]int) modify() {
+
+}
+
 // appendValues appends the elements of t to values in order
 // and returns the resulting slice.
 func appendValues(values []int, t *tree) []int {

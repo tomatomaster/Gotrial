@@ -25,6 +25,9 @@ func main() {
 				log.Fatal(err)
 			}
 			showResult(index)
+			result, _ := get(index)
+			file, _ := os.Create("./result")
+			writeLocalFile(file, &result)
 		}
 	}
 }
@@ -35,6 +38,10 @@ func showResult(index int) {
 		log.Fatal(err)
 	}
 	fmt.Printf("%v\n\n", result)
+}
+
+func writeLocalFile(file *os.File, result *xkcdResult) {
+	file.WriteString(result.Transcript)
 }
 
 type xkcdResult struct {
