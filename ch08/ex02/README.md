@@ -24,7 +24,7 @@ $ ./ftp&
 
 ### Connect
 ```bash
-$ ftp                                                                                                                           [~/GoglandProjects/Gotrial/ch08/ex02]
+$ ftp
 ftp> open
 (to) 
 usage: open host-name [port]
