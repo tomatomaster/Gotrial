@@ -5,9 +5,6 @@
 RFCは読んでもいまいちわからないので補足程度に
 サンプル実装とクライアント側の実装から仕様を確認する
 
-
-
-
 参考:
 http://srgia.com/docs/rfc959j.html
 https://github.com/YoshikiShibata/gpl/blob/master/src/ch08/ex02/ftpServer.go
@@ -20,6 +17,14 @@ http://osxdaily.com/2011/09/29/start-an-ftp-or-sftp-server-in-mac-os-x-lion/
 以下のaliasを登録した
 alias startftp="sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist"
 alias stopftp="sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist"
+
+実行のサンプル
+> ftp
+> open localhost 8080
+> ls
+> get [filename]
+> send [filename]
+> exit
 */
 package main
 
@@ -36,16 +41,14 @@ import (
 
 /**
 This FTP server runs 8080 port.
-How to access ?
+How to access
 $ftp
 > open localhost 8080
 */
 func main() {
-	//HOME Dir
 	if err := os.Chdir(os.Getenv("HOME")); err != nil {
 		checkError(err)
 	}
-	//Listen Client Connection
 	tcpAddr, err := net.ResolveTCPAddr("tcp", ":8080")
 	err = checkError(err)
 	listener, err := net.ListenTCP("tcp", tcpAddr)
@@ -114,8 +117,7 @@ func (c *client) closeConn() {
 
 func handleConn(client *client) {
 	defer client.closeConn()
-	//Clientに接続完了を通知.すぐに接続できない場合は120を返すが、今回はこのような場合は存在しない想定
-	client.writeStatus("220")
+	client.writeStatus("220") //Clientに接続完了を通知.すぐに接続できない場合は120を返すが、今回はこのような場合は存在しない想定
 	client.transMode = ascii
 	var err error
 	if client.wdir, err = os.Getwd(); err != nil {
@@ -124,24 +126,15 @@ func handleConn(client *client) {
 	input := bufio.NewScanner(client.conn)
 	for input.Scan() {
 		client.command = strings.Split(input.Text(), " ")
-		fmt.Printf("[DEBUG] Command: %s\n", client.command)
 		dispatchComand(client)
 	}
 }
 
 /**
-5.4. コマンド・リプライのシーケンス
-受け付けるコマンドと、それに対するレスポンスが解説されている。
-最悪実装を行わなくても、コマンドに対して適切なレスポンスさえ返していればクライアントとの動作確認は可能なはず
-
-6. 状態図
-このシーケンスにしたがってftpコマンドが実行されるっぽい
-
-
- USER, QUIT, PORT,
-                    TYPE, MODE, STRU,(デフォルト値のためのもの)
-                    RETR, STOR,
-                    NOOP
+1: クライアントからのコマンドを受け取る
+2: 必要に応じてクライアントに接続状態を返す
+3: コマンドに応じた処理を行う
+4: 処理結果をクライアントに通知する
 */
 func dispatchComand(client *client) {
 	switch client.command[0] {
@@ -162,9 +155,9 @@ func dispatchComand(client *client) {
 		fmt.Println("[DEBUG] Not Implement Yet")
 	case "STRU":
 		fmt.Println("[DEBUG] Not Implement Yet")
-	case "RETR": //get
+	case "RETR":
 		retrComm(client)
-	case "STOR": //send
+	case "STOR":
 		storComm(client)
 	case "NOOP":
 		fmt.Println("[DEBUG] Not Implement Yet")
