@@ -29,6 +29,7 @@ import (
 	"io"
 	"log"
 	"net"
+	"os"
 	"os/exec"
 	"strings"
 )
@@ -40,6 +41,11 @@ $ftp
 > open localhost 8080
 */
 func main() {
+	//HOME Dir
+	if err := os.Chdir(os.Getenv("HOME")); err != nil {
+		checkError(err)
+	}
+	//Listen Client Connection
 	tcpAddr, err := net.ResolveTCPAddr("tcp", ":8080")
 	err = checkError(err)
 	listener, err := net.ListenTCP("tcp", tcpAddr)
@@ -54,10 +60,30 @@ func main() {
 }
 
 type client struct {
-	conn      net.Conn
-	dconn     net.Conn
-	command   []string
-	transMode string
+	conn      net.Conn //Communication Connection
+	dconn     net.Conn //Data Connection
+	command   []string //Command ex) cd [dir]
+	transMode string   //ascii or binary
+	wdir      string   //current dir
+}
+
+//See http://tooljp.com/qa/622E6C4723FB1D0C49257C4A005DDCD1.html
+type asciiMode struct {
+	w io.Writer
+}
+
+func (a *asciiMode) Write(p []byte) (n int, err error) {
+	buf := make([]byte, 0, len(p))
+	for _, b := range p {
+		if b == '\n' {
+			buf = append(buf, '\r')
+		}
+
+		if b != '\r' {
+			buf = append(buf, b)
+		}
+	}
+	return a.w.Write(buf)
 }
 
 const (
@@ -66,18 +92,30 @@ const (
 	binary = "binary"
 
 	//Status
-	cOK           = "200"
-	cNotImplement = "502"
+	cOK             = "200"
+	cNotImplement   = "502"
+	dConnectOpened  = "125" //125 Data connection already open; transfer starting.
+	dConnectClosing = "226" //226 Closing data connection.
 )
 
 func (c *client) writeStatus(statusCode string) {
 	io.WriteString(c.conn, fmt.Sprintln(statusCode))
 }
 
+func (c *client) closeConn() {
+	c.conn.Close()
+	c.dconn.Close()
+}
+
 func handleConn(client *client) {
+	defer client.closeConn()
 	//Clientに接続完了を通知.すぐに接続できない場合は120を返すが、今回はこのような場合は存在しない想定
 	client.writeStatus("220")
-	client.transMode = ascii //デフォルトの転送モード(変更しても良い)
+	client.transMode = ascii
+	var err error
+	if client.wdir, err = os.Getwd(); err != nil {
+		checkError(err)
+	}
 	input := bufio.NewScanner(client.conn)
 	for input.Scan() {
 		client.command = strings.Split(input.Text(), " ")
@@ -110,14 +148,19 @@ func dispatchComand(client *client) {
 		fmt.Println("[DEBUG] Not Implement Yet")
 	case "TYPE":
 		typeComm(client)
+	case "CWD":
+		cwdComm(client)
+	case "PWD":
+		client.writeStatus("257")
 	case "MODE":
 		fmt.Println("[DEBUG] Not Implement Yet")
 	case "STRU":
 		fmt.Println("[DEBUG] Not Implement Yet")
-	case "RETR":
+	case "RETR": //get
+		retrComm(client)
+	case "STOR": //send
 		fmt.Println("[DEBUG] Not Implement Yet")
-	case "STOR":
-		fmt.Println("[DEBUG] Not Implement Yet")
+		client.writeStatus(cNotImplement)
 	case "NOOP":
 		fmt.Println("[DEBUG] Not Implement Yet")
 	case "EPRT":
@@ -167,14 +210,48 @@ func eprtComm(client *client) {
 }
 
 func listComm(client *client) {
-	client.writeStatus("125")
+	client.writeStatus(dConnectOpened)
 	cmd := exec.Command("ls", "-la")
 	reader, err := cmd.StdoutPipe()
 	checkError(err)
-	go io.Copy(client.dconn, reader)
+	aMode := asciiMode{client.dconn}
+	go io.Copy(&aMode, reader)
 	cmd.Start()
 	cmd.Wait()
-	client.writeStatus("226")
+	client.dconn.Close()
+	client.writeStatus(dConnectClosing)
+}
+
+func retrComm(client *client) {
+	defer client.dconn.Close()
+	client.writeStatus(dConnectOpened)
+	file, err := os.Open(client.command[1])
+	if err != nil {
+		client.writeStatus("450")
+		return
+	}
+	switch client.transMode {
+	case ascii:
+		asciimode := asciiMode{client.dconn}
+		io.Copy(&asciimode, file)
+	case binary:
+		io.Copy(client.dconn, file)
+	default:
+	}
+	client.writeStatus(dConnectClosing)
+}
+
+func cwdComm(client *client) {
+	var err error
+	if err = os.Chdir(client.command[1]); err != nil {
+		client.writeStatus("550")
+		return
+	}
+	if client.wdir, err = os.Getwd(); err != nil {
+		client.writeStatus("550")
+		return
+	}
+	client.writeStatus("250")
 }
 
 //Utils
