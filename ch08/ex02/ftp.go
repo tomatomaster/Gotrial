@@ -96,6 +96,7 @@ const (
 	cNotImplement   = "502"
 	dConnectOpened  = "125" //125 Data connection already open; transfer starting.
 	dConnectClosing = "226" //226 Closing data connection.
+	fActionNotTaken = "450" //450 Requested file action not taken.
 )
 
 func (c *client) writeStatus(statusCode string) {
@@ -103,8 +104,12 @@ func (c *client) writeStatus(statusCode string) {
 }
 
 func (c *client) closeConn() {
-	c.conn.Close()
-	c.dconn.Close()
+	if c.conn != nil {
+		c.conn.Close()
+	}
+	if c.dconn != nil {
+		c.dconn.Close()
+	}
 }
 
 func handleConn(client *client) {
@@ -144,6 +149,7 @@ func dispatchComand(client *client) {
 		client.writeStatus("331")
 	case "QUIT":
 		client.writeStatus("230")
+		client.closeConn()
 	case "PORT":
 		fmt.Println("[DEBUG] Not Implement Yet")
 	case "TYPE":
@@ -159,8 +165,7 @@ func dispatchComand(client *client) {
 	case "RETR": //get
 		retrComm(client)
 	case "STOR": //send
-		fmt.Println("[DEBUG] Not Implement Yet")
-		client.writeStatus(cNotImplement)
+		storComm(client)
 	case "NOOP":
 		fmt.Println("[DEBUG] Not Implement Yet")
 	case "EPRT":
@@ -180,6 +185,23 @@ func dispatchComand(client *client) {
 /**
 Commnads
 */
+
+func storComm(client *client) {
+	defer client.dconn.Close()
+	client.writeStatus(dConnectOpened)
+	file, err := os.Create(client.command[1])
+	if err != nil {
+		client.writeStatus(fActionNotTaken)
+		return
+	}
+	defer file.Close()
+	_, err = io.Copy(file, client.dconn)
+	if err != nil {
+		client.writeStatus(fActionNotTaken)
+		return
+	}
+	client.writeStatus(dConnectClosing)
+}
 
 func ls(params ...string) {
 	exec.Command("ls", params...)
@@ -227,7 +249,7 @@ func retrComm(client *client) {
 	client.writeStatus(dConnectOpened)
 	file, err := os.Open(client.command[1])
 	if err != nil {
-		client.writeStatus("450")
+		client.writeStatus(fActionNotTaken)
 		return
 	}
 	switch client.transMode {
