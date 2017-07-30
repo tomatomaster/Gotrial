@@ -30,7 +30,6 @@ import (
 	"log"
 	"net"
 	"os/exec"
-	"os/user"
 	"strings"
 )
 
@@ -61,8 +60,15 @@ type client struct {
 	transMode string
 }
 
-const ascii = "ascii"
-const binary = "binary"
+const (
+	//Mode
+	ascii  = "ascii"
+	binary = "binary"
+
+	//Status
+	cOK           = "200"
+	cNotImplement = "502"
+)
 
 func (c *client) writeStatus(statusCode string) {
 	io.WriteString(c.conn, fmt.Sprintln(statusCode))
@@ -99,21 +105,11 @@ func dispatchComand(client *client) {
 	case "USER":
 		client.writeStatus("331")
 	case "QUIT":
-		client.writeStatus("221")
+		client.writeStatus("230")
 	case "PORT":
 		fmt.Println("[DEBUG] Not Implement Yet")
 	case "TYPE":
-		switch client.command[1] {
-		case "A":
-			fmt.Println("[DEBUG] ASCII Mode")
-			client.transMode = ascii
-		case "I":
-			client.transMode = binary
-			fmt.Println("[DEBUG] BINARY Mode")
-		default:
-			fmt.Printf("Unsupported Mode: %s", client.command[1])
-		}
-		client.writeStatus("200")
+		typeComm(client)
 	case "MODE":
 		fmt.Println("[DEBUG] Not Implement Yet")
 	case "STRU":
@@ -125,26 +121,15 @@ func dispatchComand(client *client) {
 	case "NOOP":
 		fmt.Println("[DEBUG] Not Implement Yet")
 	case "EPRT":
-		addr := parseEPRTAddr(client.command[1])
-		fmt.Printf("[DEBUG] Connect to %s \n", addr)
-		tcpAddr, err := net.ResolveTCPAddr("tcp", addr)
-		checkError(err)
-		client.dconn, err = net.DialTCP("tcp", nil, tcpAddr)
-		checkError(err)
-		client.writeStatus("200")
+		eprtComm(client)
 	case "PASS":
 		client.writeStatus("530")
 	case "ACCT":
 		client.writeStatus("530")
 	case "LIST":
-		user, err := user.Current()
-		if err != nil {
-			log.Fatal(err)
-		}
-		client.conn.Write([]byte(user.HomeDir))
-		client.writeStatus("501")
+		listComm(client)
 	default:
-		client.writeStatus("502")
+		client.writeStatus(cNotImplement)
 		fmt.Printf("[DEBUG] NoSupport Commnad: %s \n", client.command)
 	}
 }
@@ -154,8 +139,42 @@ Commnads
 */
 
 func ls(params ...string) {
-
 	exec.Command("ls", params...)
+}
+
+func typeComm(client *client) {
+	switch client.command[1] {
+	case "A":
+		fmt.Println("[DEBUG] ASCII Mode")
+		client.transMode = ascii
+	case "I":
+		client.transMode = binary
+		fmt.Println("[DEBUG] BINARY Mode")
+	default:
+		fmt.Printf("Unsupported Mode: %s", client.command[1])
+	}
+	client.writeStatus(cOK)
+}
+
+func eprtComm(client *client) {
+	addr := parseEPRTAddr(client.command[1])
+	fmt.Printf("[DEBUG] Connect to %s \n", addr)
+	tcpAddr, err := net.ResolveTCPAddr("tcp", addr)
+	checkError(err)
+	client.dconn, err = net.DialTCP("tcp", nil, tcpAddr)
+	checkError(err)
+	client.writeStatus(cOK)
+}
+
+func listComm(client *client) {
+	client.writeStatus("125")
+	cmd := exec.Command("ls", "-la")
+	reader, err := cmd.StdoutPipe()
+	checkError(err)
+	go io.Copy(client.dconn, reader)
+	cmd.Start()
+	cmd.Wait()
+	client.writeStatus("226")
 }
 
 //Utils
