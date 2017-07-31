@@ -169,6 +169,8 @@ func dispatchComand(client *client) {
 		client.writeStatus("530")
 	case "LIST":
 		listComm(client)
+	case "SYST": //https://tools.ietf.org/html/rfc1700 OPERATING SYSTEM NAMES 参照
+		client.writeStatus("215 OSX system type")
 	default:
 		client.writeStatus(cNotImplement)
 		fmt.Printf("[DEBUG] NoSupport Commnad: %s \n", client.command)
