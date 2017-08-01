@@ -36,6 +36,7 @@ import (
 	"net"
 	"os"
 	"os/exec"
+	"strconv"
 	"strings"
 )
 
@@ -144,7 +145,7 @@ func dispatchComand(client *client) {
 		client.writeStatus("230")
 		client.closeConn()
 	case "PORT":
-		fmt.Println("[DEBUG] Not Implement Yet")
+		portComm(client)
 	case "TYPE":
 		typeComm(client)
 	case "CWD":
@@ -218,6 +219,16 @@ func typeComm(client *client) {
 
 func eprtComm(client *client) {
 	addr := parseEPRTAddr(client.command[1])
+	fmt.Printf("[DEBUG] Connect to %s \n", addr)
+	tcpAddr, err := net.ResolveTCPAddr("tcp", addr)
+	checkError(err)
+	client.dconn, err = net.DialTCP("tcp", nil, tcpAddr)
+	checkError(err)
+	client.writeStatus(cOK)
+}
+
+func portComm(client *client) {
+	addr := parsePORTAddr(client.command[1])
 	fmt.Printf("[DEBUG] Connect to %s \n", addr)
 	tcpAddr, err := net.ResolveTCPAddr("tcp", addr)
 	checkError(err)
@@ -300,4 +311,13 @@ func parseEPRTAddr(addr string) string {
 		fmt.Errorf("Unsupported Type %s\n", a[1])
 	}
 	return addr
+}
+
+func parsePORTAddr(addr string) string {
+	a := strings.Split(addr, ",")
+	ip := strings.Join(a[0:3], ".")
+	portA, _ := strconv.Atoi(a[4])
+	portB, _ := strconv.Atoi(a[5])
+	port := portA*256 + portB
+	return fmt.Sprintf("%s:%s", ip, port)
 }
