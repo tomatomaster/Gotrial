@@ -1,0 +1,2 @@
+- See ch06/ex04/ex04_test.go
+- See ch06/ex04/ex05_test.go

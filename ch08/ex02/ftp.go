@@ -144,7 +144,7 @@ func dispatchComand(client *client) {
 	case "QUIT":
 		client.writeStatus("230")
 		client.closeConn()
-	case "PORT":
+	case "PORT": //For Windows
 		portComm(client)
 	case "TYPE":
 		typeComm(client)
@@ -170,7 +170,7 @@ func dispatchComand(client *client) {
 		client.writeStatus("530")
 	case "LIST":
 		listComm(client)
-	case "SYST": //https://tools.ietf.org/html/rfc1700 OPERATING SYSTEM NAMES 参照
+	case "SYST": //For Windows https://tools.ietf.org/html/rfc1700 OPERATING SYSTEM NAMES 参照
 		client.writeStatus("215 OSX system type")
 	default:
 		client.writeStatus(cNotImplement)
