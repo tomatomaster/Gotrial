@@ -27,8 +27,8 @@ const (
 
 func main() {
 
-fmt.Printf("Sunday is %d\n", Sunday)
-fmt.Printf("FlagUp is %b\n", FlagUp)
-fmt.Printf("FlagBroadcast is %b\n", FlagBroadcast)
-fmt.Printf("FlagLoopback is %b\n", FlagLoopback)
+	fmt.Printf("Sunday is %d\n", Sunday)
+	fmt.Printf("FlagUp is %b\n", FlagUp)
+	fmt.Printf("FlagBroadcast is %b\n", FlagBroadcast)
+	fmt.Printf("FlagLoopback is %b\n", FlagLoopback)
 }
