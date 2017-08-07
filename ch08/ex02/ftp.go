@@ -170,6 +170,8 @@ func dispatchComand(client *client) {
 		client.writeStatus("530")
 	case "LIST":
 		listComm(client)
+	case "NLIST":
+		nlistComm(client)
 	case "SYST": //For Windows https://tools.ietf.org/html/rfc1700 OPERATING SYSTEM NAMES 参照
 		client.writeStatus("215 OSX system type")
 	default:
@@ -250,6 +252,19 @@ func listComm(client *client) {
 	client.writeStatus(dConnectClosing)
 }
 
+func nlistComm(client *client) {
+	client.writeStatus(dConnectOpened)
+	cmd := exec.Command("ls")
+	reader, err := cmd.StdoutPipe()
+	checkError(err)
+	aMode := asciiMode{client.dconn}
+	go io.Copy(&aMode, reader)
+	cmd.Start()
+	cmd.Wait()
+	client.dconn.Close()
+	client.writeStatus(dConnectClosing)
+}
+
 func retrComm(client *client) {
 	defer client.dconn.Close()
 	client.writeStatus(dConnectOpened)
@@ -315,9 +330,9 @@ func parseEPRTAddr(addr string) string {
 
 func parsePORTAddr(addr string) string {
 	a := strings.Split(addr, ",")
-	ip := strings.Join(a[0:3], ".")
+	ip := strings.Join(a[0:4], ".")
 	portA, _ := strconv.Atoi(a[4])
 	portB, _ := strconv.Atoi(a[5])
 	port := portA*256 + portB
-	return fmt.Sprintf("%s:%s", ip, port)
+	return fmt.Sprintf("%s:%d", ip, port)
 }

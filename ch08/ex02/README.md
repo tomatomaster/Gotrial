@@ -30,3 +30,7 @@ ftp> open
 usage: open host-name [port]
 ftp> open localhost 8080
 ```
+
+### Reference(mainly japanese)
+ - [FTPのプロトコルについて前編](http://www.atmarkit.co.jp/ait/articles/0107/17/news002.html)
+ - [FTPのプロトコルについて後編](http://www.atmarkit.co.jp/ait/articles/0108/03/news001.html)
