@@ -8,9 +8,10 @@ import (
 	"log"
 	"os"
 	"os/exec"
-	"runtime"
 	"strings"
 	"sync"
+
+	_ "./abcdefg"
 )
 
 type depths struct {
@@ -19,7 +20,11 @@ type depths struct {
 }
 
 func main() {
-	runtime.GOMAXPROCS(runtime.NumCPU()) //Use all cpu core
+	CheckDependency()
+}
+
+func CheckDependency() {
+	//runtime.GOMAXPROCS(runtime.NumCPU()) //Use all cpu core
 	wantCheck := os.Args[1]
 	out, err := exec.Command("go", "list", "...").Output()
 	if err != nil {
