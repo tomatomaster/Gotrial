@@ -34,3 +34,6 @@ ftp> open localhost 8080
 ### Reference(mainly japanese)
  - [FTPのプロトコルについて前編](http://www.atmarkit.co.jp/ait/articles/0107/17/news002.html)
  - [FTPのプロトコルについて後編](http://www.atmarkit.co.jp/ait/articles/0108/03/news001.html)
+ 
+ ### Note:
+ **PWD** in OSX ftp client requires following format message, `"{current directory name}" is the current directory`. 
