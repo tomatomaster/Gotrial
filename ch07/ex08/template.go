@@ -15,8 +15,8 @@ const templ = `<table>
 <th><a href="?sort=title">Title</a></th>
 <th><a href="?sort=artist">Artist</a></th>
 <th><a href="?sort=album">Album</a></th>
-<th><a href="?sort=year">Year</a></th>
-<th><a href="?sort=length">Length</a></th>
+<th>Year</th>
+<th>Length</th>
 </tr>
 {{range .}}<tr>
 <td>{{.Title}}</td>
