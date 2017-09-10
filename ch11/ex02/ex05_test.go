@@ -57,8 +57,10 @@ func Test(t *testing.T) {
 }
 
 func TestAdd(t *testing.T) {
-	sample := make(map[int]int)
-	sample[1] = 1
-	set := make(IntSet)
+	var set IntSet
+	var m map[int]bool
 	set.Add(1)
+	m[1] = true
+	set.Has(1)
+
 }

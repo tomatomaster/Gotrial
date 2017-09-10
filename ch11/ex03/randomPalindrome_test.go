@@ -3,6 +3,7 @@
 package main
 
 import (
+	"log"
 	"math/rand"
 	"testing"
 	"time"
@@ -63,5 +64,6 @@ func randomNotPlindrome(rng *rand.Rand) string {
 		}
 		runes[n-1-i] = r
 	}
+	log.Print(string(runes))
 	return string(runes)
 }
