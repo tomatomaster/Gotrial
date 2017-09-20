@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Can't compile
+#And see p.362: The gopl.io/ch13/bzip program does not comply with the proposed rules for passing pointers between Go and C code because the C function bz2compress temporarily stores a Go pointer (in) into the Go heap (the bz_stream variable). The bz_stream variable should be allocated, and explicitly freed after the call to BZ2_bzCompressEnd, by C functions. (Thanks to Joe Tsai, 2015-11-18. Corrected in the third printing.)
