@@ -15,6 +15,7 @@ type Data struct {
 	Year            int
 }
 
+//Give up...
 func main() {
 
 	var data Data

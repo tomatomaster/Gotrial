@@ -1,5 +1,5 @@
 // Copyright © 2017 Ryutarou Ono.
-
+// Ref P126
 package sexpr
 
 import (
@@ -9,7 +9,6 @@ import (
 	"log"
 	"reflect"
 	"strconv"
-	"strings"
 	"text/scanner"
 )
 
@@ -32,11 +31,15 @@ type Decoder struct {
 	r io.Reader
 }
 
-func NewReader(reader io.Reader) *Decoder {
+func (d *Decoder) NewDecoder(reader io.Reader) *Decoder {
 	return &Decoder{reader}
 }
 
-func (d Decoder) UnmarshalReader(out interface{}) (err error) {
+func NewDecoder(reader io.Reader) *Decoder {
+	return &Decoder{reader}
+}
+
+func (d Decoder) Decode(out interface{}) (err error) {
 	lex := &lexer{scan: scanner.Scanner{Mode: scanner.GoTokens}}
 	lex.scan.Init(d.r)
 	lex.next()
@@ -73,12 +76,9 @@ func read(lex *lexer, v reflect.Value) {
 			v.Set(reflect.Zero(v.Type()))
 			lex.next()
 			return
-		} else if lex.text() == "t" {
-			v.SetBool(true)
-			lex.next()
-			return
 		} else {
-
+			fmt.Println(lex.text())
+			return
 		}
 	case scanner.String:
 		s, _ := strconv.Unquote(lex.text()) //"text" -> text
@@ -90,18 +90,11 @@ func read(lex *lexer, v reflect.Value) {
 		v.SetInt(int64(i))
 		lex.next()
 		return
-	case scanner.Float:
-		i, _ := strconv.ParseFloat(lex.text(), 64)
-		v.SetFloat(float64(i))
-		lex.next()
-		return
-
 	case '(':
 		lex.next() // consume '('
 		readList(lex, v)
 		lex.next() // consume ')'
 		return
-
 	case '#':
 		readComplex(lex, v)
 		return
@@ -168,15 +161,6 @@ func readList(lex *lexer, v reflect.Value) {
 			v.SetMapIndex(key, value)
 			lex.consume(')')
 		}
-
-	case reflect.Interface:
-		t, _ := strconv.Unquote(lex.text()) //Information
-		log.Printf("Information %s ", t)
-		value := reflect.New(getSupportedType(t)).Elem()
-		lex.next()
-		read(lex, value)
-		v.Set(value)
-
 	default:
 		panic(fmt.Sprintf("cannot decode list into %v", v.Type()))
 	}
@@ -190,57 +174,4 @@ func endList(lex *lexer) bool {
 		return true
 	}
 	return false
-}
-
-/**
-[]int
-[4]int
-map[string][int]
-*/
-func getSupportedType(t string) reflect.Type {
-	log.Printf("Get type %s", t)
-	ty, e := getBasicTypea(t)
-	if e == nil {
-		return ty
-	}
-
-	if strings.HasPrefix(t, "[]") {
-		ty, _ = getBasicTypea(t[2:])
-		return reflect.SliceOf(ty)
-	}
-
-	if strings.HasPrefix(t, "map") {
-		indexEndOfKey := strings.Index(t, "]")
-		keyType, _ := getBasicTypea(t[4:indexEndOfKey])
-		valType, _ := getBasicTypea(t[indexEndOfKey+1:])
-		return reflect.MapOf(keyType, valType)
-	}
-
-	index, err := strconv.Atoi(string(t[1]))
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Printf("TTTTTT %d", index)
-	ty, _ = getBasicTypea(t[3:])
-	return reflect.ArrayOf(index, ty)
-}
-
-func getBasicTypea(t string) (ty reflect.Type, e error) {
-	switch t {
-	case reflect.Int.String(), reflect.Int8.String(), reflect.Int16.String(), reflect.Int32.String(), reflect.Int64.String():
-		ty = reflect.TypeOf(int(0))
-	case reflect.Uint.String(), reflect.Uint8.String(), reflect.Uint16.String(), reflect.Uint64.String():
-		ty = reflect.TypeOf(uint(0))
-	case reflect.Float32.String(), reflect.Float64.String():
-		ty = reflect.TypeOf(float64(0))
-	case reflect.Bool.String():
-		ty = reflect.TypeOf(true)
-	case reflect.Complex64.String(), reflect.Complex128.String():
-		ty = reflect.TypeOf(complex128(0))
-	case reflect.String.String():
-		ty = reflect.TypeOf("")
-	default:
-		e = fmt.Errorf("%s is not basic type", t)
-	}
-	return
 }
